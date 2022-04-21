@@ -1,0 +1,47 @@
+﻿
+<style>
+body {
+  heigh:665px;
+  background-image: url("https://image.freepik.com/vector-gratis/fondo-negro-gris-patron-lineas-diagonales_1017-25100.jpg");
+  background-size: 30rem;
+  
+}
+
+</style>
+
+<h1 class="p-4 text-black-50 text-center">Agregar cometario a la Mascota</h1>
+
+
+<form action="/Home/AgregarComentario" method="post">
+    
+    <input type="hidden" name="IdPublicacion" value="@ViewBag.IdPublicacion"/>
+
+    <div class="form-group">
+        <h3 class="text-black-50">Descripcion</h3>
+        <input class="form-control" type="text" name="descripcion" placeholder="describa el comentario"/>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+    <tr>
+       
+        <th>Comentario</th>
+        <th>Usuario</th>
+        <th>Fecha publicacion del comentario</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in @ViewBag.Comentarios)
+    {
+        <tr>
+
+            <td>@item.Descripcion</td>
+            <td>@ViewBag.usuarios[item.IdUsuario].Nombres</td>
+            <td>@item.FechaPublicacion</td>
+        </tr>
+    }
+    </tbody>
+</table>

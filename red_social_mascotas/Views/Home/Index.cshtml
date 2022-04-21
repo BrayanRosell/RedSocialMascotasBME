@@ -1,0 +1,104 @@
+﻿
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - pets</title>
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- CSS -->
+   
+    <style>
+        body {
+            background-image: url(../Img/interface2.jpg);
+            height: 100vh;
+            background-position: top center;
+            background-size: cover;
+        }
+        .album-poster2 {
+            position: relative;
+            display: block;
+            border-radius: 7px;
+            width: 230px;
+            height: 525px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px #3d2173a1;
+            transition: all ease 0.4s;
+        }
+
+            .album-poster2:hover {
+                box-shadow: none;
+                transform: scale(0.98) translateY(5px);
+            }
+
+            .album-poster2 img {
+                width: 200px;
+                height: 200px;
+            }
+    </style>
+</head>
+<body>
+    
+    <div class="fondo">
+        <div align="center">
+            
+            <a href="#" class="btn btn-outline-light rounded-pill pl-5 pr-5" style="color: silver"><h2><strong>Usuario: </strong> @ViewBag.usurioLoged</h2></a><br />
+            <br />
+
+        </div>
+        <form>
+            <input class="form-control" type="search" name="busqueda" placeholder="Search...">
+        </form>
+        <div class="container my-4">
+            <!--Carousel Wrapper-->
+            <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+
+                <!--Slides-->
+                <div class="carousel-inner" role="listbox">
+
+                    <!--First slide-->
+                    <div class="carousel-item active">
+                        @foreach (var item in @ViewBag.enAdopcion)
+                        {
+            <div class="col-md-3" style="float:left">
+                <div class="album-poster2">
+                    <div class="card mb-2">
+                        <div style="color: blue" align="center">
+                            <br />
+                            <h3>@item.Nombre</h3>
+                            <hr style="border-color:red;" />
+                            <img src="~/images/@item.Imagen" style="border: silver 1px solid; border-radius: 12px" />
+                        </div>
+
+                        <div class="card-body">
+                            <h6 class="card-title"><b>Raza: </b>@item.Razas.Nombre</h6>
+
+
+
+                            <a class="btn btn-primary" href="/Home/Test?IdMascota=@item.Id">adoptar</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>}
+
+                    </div>
+
+                    <!--/.First slide-->
+
+                </div>
+                <!--/.Slides-->
+
+            </div>
+        </div>
+    </div>
+   </body>
+</html>
+
