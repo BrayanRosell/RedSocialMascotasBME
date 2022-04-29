@@ -8,18 +8,19 @@
     <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="~/css/style6.css" />
     <!-- Los iconos tipo Solid de Fontawesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <style>
-        
+
         body {
             background-image: url(../Img/interface2.jpg);
             height: 100vh;
             background-position: top center;
             background-size: cover;
         }
+
         .album-poster2 {
             position: relative;
             display: block;
@@ -43,82 +44,72 @@
     </style>
 </head>
 <body>
-    <div class="fondo">
-        <div align="center">
-            <a href="#" class="btn btn-outline-light rounded-pill pl-5 pr-5" style="color: silver"><h2><strong>Usuario: </strong> @ViewBag.usurioLoged</h2></a>
-            <br />
-           
-        </div>
-       
-        <div align="right">
-            <h3><a href="/Home/RegistarMascota" class="btn btn-outline-success">Registrar mascota</a></h3>
-        </div>
+    <div align="center">
+        <a href="#" class="btn btn-outline-light rounded-pill pl-5 pr-5" style="color: silver"><h2><strong>Usuario: </strong> @ViewBag.usurioLoged</h2></a>
+        <br />
+
+    </div>
+
+    <div align="right">
+        <h3><a href="/Home/RegistarMascota" class="btn btn-outline-success">Registrar mascota</a></h3>
+    </div>
 
 
-        <div class="container my-4">
+    <div class="container-fluid">
 
-            <!--Carousel Wrapper-->
-            <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+        <main class="tm-main">
 
-                <!--Slides-->
-                <div class="carousel-inner" role="listbox">
+            @foreach (var item in @ViewBag.mismascotas)
+            {
+                <div class="col-md-3" style="float:left">
+                    <div class="album-poster2">
 
-                    <!--First slide-->
-                    <div class="carousel-item active">
-
-                        @foreach (var item in @ViewBag.mismascotas)
-                        {
-                            <div class="col-md-3" style="float:left">
-                                <div class="album-poster2">
-
-                                    <div class="card mb-2">
-                                        <div style="color: blue" align="center">
-                                            <br />
-                                            <h3>@item.Nombre</h3>
-                                            <hr style="border-color:red;" />
-                                            <img src="~/images/@item.Imagen" style="border: silver 1px solid; border-radius: 12px" />
-                                        </div>
-
-
-                                        <div class="card-body">
-
-                                            <strong class="card-title"><b>Raza: </b>@ViewBag.raza[@item.IdRaza].Nombre</strong><br />
-                                            <strong class="card-title"><b>Especie: </b>@ViewBag.especie[@item.IdEspecie].Nombre</strong><br />
-
-                                            <strong class="card-title">
-                                                @if (@item.EstadoAdoptivo == false)
-                                                {
-                                                    <div style="color: forestgreen">
-                                                        <b>No está en adopción</b>
-                                                    </div>
-                                                    <br />
-                                                    <h3><a href="/Home/PonerEnAdopccion?IdMascota=@item.Id" class="btn btn-primary">Poner en adopcion</a></h3> }
-                                                else
-                                                {
-                                                    <div style="color: darkred">
-                                                        <b>Está en adopción</b>
-                                                    </div>
-                                                    <br />
-                                                    <h3><a href="/Home/SacarDeAdopcion?IdMascota=@item.Id" class="btn btn-secondary">Sacar de adopcion</a></h3>}
-                                            </strong>
-                                        </div>
-
-                                    </div>
-
-                                </div>
+                        <div class="card mb-2">
+                            <div style="color: blue" align="center">
+                                <br />
+                                <h3>@item.Nombre</h3>
+                                <hr style="border-color:red;" />
+                                <img src="~/images/@item.Imagen" style="border: silver 1px solid; border-radius: 12px" />
                             </div>
-                        }
+
+
+                            <div class="card-body">
+
+                                <strong class="card-title"><b>Raza: </b>@ViewBag.raza[@item.IdRaza].Nombre</strong><br />
+                                <strong class="card-title"><b>Especie: </b>@ViewBag.especie[@item.IdEspecie].Nombre</strong><br />
+
+                                <strong class="card-title">
+                                    @if (@item.EstadoAdoptivo == false)
+                                    {
+                                        <div style="color: forestgreen">
+                                            <b>No está en adopción</b>
+                                        </div>
+                                        <br />
+                                        <h3>
+                                            <a href="/Home/PonerEnAdopccion?IdMascota=@item.Id" class="btn btn-primary">Poner en adopcion</a>
+
+                                            <a href="#popup"><i class="fa fa-plus"></i>Poner en adopcion</a>
+                                        </h3> }
+                                    else
+                                    {
+                                        <div style="color: darkred">
+                                            <b>Está en adopción</b>
+                                        </div>
+                                        <br />
+                                        <h3><a href="/Home/SacarDeAdopcion?IdMascota=@item.Id" class="btn btn-secondary">Sacar de adopcion</a></h3>}
+                                </strong>
+                            </div>
+
+                        </div>
 
                     </div>
-
-                    <!--/.First slide-->
-
                 </div>
-                <!--/.Slides-->
 
-            </div>
+            }
+
+</main>
         </div>
-    </div>
+
 
 
 </body>

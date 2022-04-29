@@ -18,7 +18,6 @@ namespace red_social_mascotas.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private RSMascotasContext _context;
         private readonly ICookieAuthService _cookieAuthService;
         private readonly IUsuarioRepository _usuario;
@@ -26,31 +25,54 @@ namespace red_social_mascotas.Controllers
         private IHostingEnvironment env;
 
         [Obsolete]
-        public HomeController(ILogger<HomeController> logger, RSMascotasContext _context,
+        public HomeController(RSMascotasContext _context,
             ICookieAuthService _cookieAuthService
-            , IUsuarioRepository _usuario,IHostingEnvironment env)
+            , IUsuarioRepository _usuario, IHostingEnvironment env)
         {
-            _logger = logger;
+
             this._context = _context;
             this._cookieAuthService = _cookieAuthService;
             this._usuario = _usuario;
             this.env = env;
 
         }
-
-        public IActionResult Index(String busqueda = "")
+        public IActionResult Index(/*Comentario nuevo,*/ String busqueda = "")
         {
             ViewBag.usurioLoged = LoggedUser().Username;
-            ViewBag.enAdopcion = _context._mascotas.Where(o => o.EstadoAdoptivo == true && o.IdUsuario  != LoggedUser().Id).Include(o => o.Razas).ToList();
+            ViewBag.Imagen = LoggedUser().Imagen;
+            ViewBag.duenio = _context._mascotas.Where(o => o.EstadoAdoptivo == true).FirstOrDefault();
+            ViewBag.Publicacion = _context._publicaciones.
+                Include(o => o.Razas).
+                Include(h => h.Usuarios).
+                Include(z => z.Especies).
+                Include(o => o.Mascotas).
+                Include(s => s.Comentarios).    
+                ToList();
+   
+            ViewBag.PaseParaQuenosecaiga = _context._Usuarios.Include(f=>f.Comentarios).ToList();//no eliminar
             return View();
         }
+        [HttpPost]
+        public IActionResult Comentario(int IdPublicacion, String descripcion)
+        { 
+            Comentario nuevo = new Comentario();
+            nuevo.Descripcion = descripcion;
+            nuevo.IdUsuario = LoggedUser().Id;
+            nuevo.IdPublicacion = IdPublicacion;
+            nuevo.FechaPublicacion = DateTime.Now;
 
+            _context._comentario.Add(nuevo);
+            _context.SaveChanges();
+            return RedirectToAction("Index"/*,nuevo*/);
+        }
         public IActionResult MisMascotas()
         {
             
             Usuario user = LoggedUser();
             ViewBag.usurioLoged = user.Username;
             ViewBag.mismascotas = _context._mascotas.Where(o => o.IdUsuario == user.Id).ToList();
+            ViewBag.Imagen = LoggedUser().Imagen;
+
             var raza = _context._razas.ToList();
             var especie = _context._especie.ToList();
             Dictionary<int, Raza> razamascota = new Dictionary<int, Raza>();
@@ -73,87 +95,79 @@ namespace red_social_mascotas.Controllers
 
         public IActionResult RegistarMascota()
         {
+            ViewBag.Imagen = LoggedUser().Imagen;
             ViewBag.Especie = _context._especie.ToList();
             ViewBag.Raza = _context._razas.ToList();
             return View();
         }
-
-        public IActionResult GuardarMascota(string NombreMascota, int EspecieId, int RazaId, IFormFile Imagen)
+       
+        public IActionResult RegistrarMascota(string NombreMascota, int EspecieId, int RazaId, IFormFile Imagen, IFormFile Imagen2, IFormFile Imagen3)
         {
             
-            Usuario user = LoggedUser();
+           
             Mascota nueva = new Mascota();
             nueva.Nombre = NombreMascota;
             nueva.EstadoAdoptivo = false;
             nueva.IdEspecie = EspecieId;
             nueva.IdRaza = RazaId;
-            nueva.IdUsuario = user.Id;
-            nueva.Imagen = "xx";
+            nueva.IdUsuario = LoggedUser().Id;
+            nueva.Imagen = "vacio";
             if (ModelState.IsValid)
             {
                 var filePath = Path.Combine(env.WebRootPath, "images", Imagen.FileName);
+                var filePath2 = Path.Combine(env.WebRootPath, "images", Imagen2.FileName);
+                var filePath3 = Path.Combine(env.WebRootPath, "images", Imagen3.FileName);
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     Imagen.CopyTo(stream);
                 }
+                using (var stream = new FileStream(filePath2, FileMode.Create))
+                {
+                    Imagen2.CopyTo(stream);
+                }
+                using (var stream = new FileStream(filePath3, FileMode.Create))
+                {
+                    Imagen3.CopyTo(stream);
+                }
 
                 nueva.Imagen = Imagen.FileName;
+                nueva.Imagen2 = Imagen2.FileName;
+                nueva.Imagen3 = Imagen3.FileName;
             }
 
             _context._mascotas.Add(nueva);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [HttpGet]
         public IActionResult PonerEnAdopccion(int IdMascota)
         {
-            ViewBag.mimascota = _context._mascotas.FirstOrDefault(o => o.Id == IdMascota);
-            var raza = _context._razas.ToList();
-            var especie = _context._especie.ToList();
-           
-            Dictionary<int, Raza> razamascota = new Dictionary<int, Raza>();
-            foreach (var item in raza)
-            {
-                razamascota.Add(item.Id, item);
-            }
-
-            Dictionary<int, Especie> especiemascota = new Dictionary<int, Especie>();
-            foreach (var item in especie)
-            {
-                especiemascota.Add(item.Id, item);
-            }
-
-            ViewBag.raza = razamascota;
-            ViewBag.especie = especiemascota;
             
-
+            ViewBag.mimascota = _context._mascotas.FirstOrDefault(o => o.Id == IdMascota);
             var mascota = _context._mascotas.Where(o => o.Id == IdMascota).FirstOrDefault();
             mascota.EstadoAdoptivo = true;
             _context._mascotas.Update(mascota);
             _context.SaveChanges();
-            return RedirectToAction("MisMascotas");
+            return RedirectToAction("PonerEnPublicacion", mascota);
         }
-
-        public IActionResult SacarDeAdopcion(int IdMascota)
+        [HttpGet]
+        public IActionResult PonerEnPublicacion(Mascota mascota)
         {
-            var mascota = _context._mascotas.Where(o => o.Id == IdMascota).FirstOrDefault();
-            mascota.EstadoAdoptivo = false;
-            _context._mascotas.Update(mascota);
-            _context.SaveChanges();
-            return RedirectToAction("MisMascotas");
+            ViewBag.Imagen = LoggedUser().Imagen;
+            ViewBag.mimascota = _context._mascotas.FirstOrDefault(o => o.Id == mascota.Id);
+            return View();
         }
-
-        public IActionResult guardarPublicacion(int IdMascota, string descripcion)
+       [HttpPost]
+        public IActionResult PonerEnPublicacion(int IdMascota, string descripcion)
         {
             Usuario user = LoggedUser();
             var mascota = _context._mascotas.Where(o => o.Id == IdMascota).FirstOrDefault();
-           
+
             _context._mascotas.Update(mascota);
             _context.SaveChanges();
             Publicacion nueva = new Publicacion();
             nueva.Descripcion = descripcion;
-            nueva.Estado = true;
             nueva.Nombre = mascota.Nombre;
             nueva.FechaPublicacion = DateTime.Now;
             nueva.IdEspecie = mascota.IdEspecie;
@@ -164,6 +178,25 @@ namespace red_social_mascotas.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IActionResult SacarDeAdopcion(int IdMascota)
+        {
+           
+            var mascota = _context._mascotas.Where(o => o.Id == IdMascota).FirstOrDefault();
+            var sacarAdopcion = _context._publicaciones.Where(s => s.IdMascota == IdMascota).FirstOrDefault();
+
+            var comentary = _context._comentario.Where(s => s.IdPublicacion == sacarAdopcion.Id).ToList();
+            if (sacarAdopcion.IdMascota == IdMascota)
+            {
+                _context._publicaciones.Remove(sacarAdopcion);
+                _context._comentario.RemoveRange(comentary);
+            }
+            mascota.EstadoAdoptivo = false;
+            _context._mascotas.Update(mascota);
+            _context.SaveChanges();
+            return RedirectToAction("MisMascotas"); 
+        }
+
+       
 
         public IActionResult Test(int IdMascota)
         {
@@ -191,36 +224,11 @@ namespace red_social_mascotas.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Comentarios(int IdPublicacion)
-        {
-            var ComentariosPublicacion = _context._comentario.Where(o => o.IdPublicacion == IdPublicacion).ToList().OrderBy(o=>o.FechaPublicacion).ToList();
-            var usuario = _context._Usuarios.ToList();
-            ViewBag.Comentarios = ComentariosPublicacion;
-            Dictionary<int, Usuario> nombreusuario = new Dictionary<int, Usuario>();
-            foreach (var item in usuario)
-            {
-                nombreusuario.Add(item.Id, item);
-            }
-            ViewBag.IdPublicacion = IdPublicacion;
-            ViewBag.usuarios = nombreusuario;
-            
-            return View();
-        } 
-        public IActionResult AgregarComentario(int IdPublicacion,string descripcion)
-        {
-            Usuario user = LoggedUser();
-            Comentario nuevo = new Comentario();
-            nuevo.Descripcion = descripcion;
-            nuevo.IdPublicacion = IdPublicacion;
-            nuevo.IdUsuario = user.Id;
-            nuevo.FechaPublicacion = DateTime.Now;
-            _context._comentario.Add(nuevo);
-            _context.SaveChanges();
-            return RedirectToAction("index");
-        }
-
+      
+        
         public IActionResult Privacy()
         {
+            ViewBag.Imagen = LoggedUser().Imagen;
             return View();
         }
 

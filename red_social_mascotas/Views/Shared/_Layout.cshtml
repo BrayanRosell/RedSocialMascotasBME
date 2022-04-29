@@ -4,53 +4,81 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] Perros en Adopción</title>
+    <title>FacePets</title>
+    <link rel="stylesheet" href="~/fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-   
+
+    <link href="~/css/templatemo-xtra-blog.css" rel="stylesheet">
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="btn btn-outline-success" asp-area="" asp-controller="Home" asp-action="Index">Perros en Adopción</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="btn btn-outline-success" asp-area="" asp-controller="Home" asp-action="MisMascotas">Mis mascotas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-outline-success" asp-area="" asp-controller="Home" asp-action="RegistarMascota">Registrar mascota</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-outline-success" asp-area="" asp-controller="Home" asp-action="Privacy">Conocenos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn btn-outline-success" asp-area="" asp-controller="Auth" asp-action="Logout">Salir</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header> 
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
-</div>
+    <header class="tm-header" id="tm-header">
+        <h1 class="text-center">FacePets</h1>
+        <figure align="center" class="tm-comment-figure">
+            <img src="~/Img/@ViewBag.Imagen" alt="Image" class="mb-2 rounded-circle img-thumbnail">
+  
+            <figcaption class="text-center">@ViewBag.usurioLoged</figcaption>
 
-<footer class="border-top footer text-muted">
+        </figure>
+        <div class="tm-header-wrapper">
+
+
+            <nav class="tm-nav" id="tm-nav">
+                <ul>
+                    <li class="tm-nav-item">
+                        <a asp-controller="Home" asp-action="Index" class="tm-nav-link">
+                            <i class="fas fa-home"></i>
+                            <strong>Home</strong>
+                        </a>
+                    </li>
+                    <li class="tm-nav-item">
+                        <a asp-controller="Home" asp-action="MisMascotas" class="tm-nav-link">
+                            <i class="fas fa-heart"></i>
+                            Mis Mascotas
+                        </a>
+                    </li>
+                    <li class="tm-nav-item">
+                        <a asp-controller="Home" asp-action="Privacy" class="tm-nav-link">
+                            <i class="fas fa-users"></i>
+                            Conocenos
+                        </a>
+                    </li>
+                    <li class="tm-nav-item">
+                        <a asp-controller="Auth" asp-action="Logout" class="tm-nav-link">
+                            <i class="fa fa-times-circle"></i>
+                            Salir
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="tm-mb-65">
+                <a href="https://facebook.com" class="tm-social-link">
+                    <i class="fab fa-facebook tm-social-icon"></i>
+                </a>
+                <a href="https://twitter.com" class="tm-social-link">
+                    <i class="fab fa-twitter tm-social-icon"></i>
+                </a>
+                <a href="https://instagram.com" class="tm-social-link">
+                    <i class="fab fa-instagram tm-social-icon"></i>
+                </a>
+                <a href="https://linkedin.com" class="tm-social-link">
+                    <i class="fab fa-linkedin tm-social-icon"></i>
+                </a>
+            </div>
+
+        </div>
+    </header>
     <div class="container">
-        &copy; 2022 - red_social_mascotas - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
     </div>
-</footer>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-@await RenderSectionAsync("Scripts", required: false)
+
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

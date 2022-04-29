@@ -13,6 +13,10 @@ namespace red_social_mascotas.Models
         public String ApellidoPaterno { get; set; }
         public String ApellidoMaterno { get; set; }
         public DateTime FechaNacimiento { get; set; }
+        public String Telefono { get; set; }
+        public String Imagen { get; set; }
         public List<Mascota> Mascotas { get; set; }
+        public List<Publicacion> Publicaciones { get; set; }
+        public List<Comentario> Comentarios { get; set; }
     }
 }

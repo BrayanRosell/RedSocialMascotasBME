@@ -9,8 +9,7 @@ namespace red_social_mascotas.BaseDatos.Maps
         public void Configure(EntityTypeBuilder<Comentario> builder)
         {
             builder.ToTable("Comentario");
-            builder.HasKey(o => o.Id);
-
+            builder.HasKey(o => o.Id);     
         }
     }
 }

@@ -9,5 +9,7 @@ namespace red_social_mascotas.Models
         public int IdUsuario { get; set; }
         public int IdPublicacion { get; set; }
         public DateTime FechaPublicacion { get; set; }
+        public Publicacion Publicaciones { get; set; }
+        public Usuario Usuarios { get; set; }
     }
 }

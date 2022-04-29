@@ -1,25 +1,19 @@
 ﻿
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - pets</title>
-    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- Los iconos tipo Solid de Fontawesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
     <!-- CSS -->
    
     <style>
-        body {
-            background-image: url(../Img/interface2.jpg);
-            height: 100vh;
-            background-position: top center;
-            background-size: cover;
+        .tm-main {
+            width: 90%;
+            float: right;
+            left: 15%;
+
+
+           
         }
         .album-poster2 {
             position: relative;
@@ -44,61 +38,155 @@
     </style>
 </head>
 <body>
-    
-    <div class="fondo">
-        <div align="center">
-            
-            <a href="#" class="btn btn-outline-light rounded-pill pl-5 pr-5" style="color: silver"><h2><strong>Usuario: </strong> @ViewBag.usurioLoged</h2></a><br />
-            <br />
 
-        </div>
-        <form>
-            <input class="form-control" type="search" name="busqueda" placeholder="Search...">
-        </form>
-        <div class="container my-4">
-            <!--Carousel Wrapper-->
-            <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-
-                <!--Slides-->
-                <div class="carousel-inner" role="listbox">
-
-                    <!--First slide-->
-                    <div class="carousel-item active">
-                        @foreach (var item in @ViewBag.enAdopcion)
-                        {
-            <div class="col-md-3" style="float:left">
-                <div class="album-poster2">
-                    <div class="card mb-2">
-                        <div style="color: blue" align="center">
-                            <br />
-                            <h3>@item.Nombre</h3>
-                            <hr style="border-color:red;" />
-                            <img src="~/images/@item.Imagen" style="border: silver 1px solid; border-radius: 12px" />
-                        </div>
-
-                        <div class="card-body">
-                            <h6 class="card-title"><b>Raza: </b>@item.Razas.Nombre</h6>
+   
 
 
 
-                            <a class="btn btn-primary" href="/Home/Test?IdMascota=@item.Id">adoptar</a>
-
-                        </div>
-                    </div>
+    <div class="container-fluid">
+       
+        <main class="tm-main">
+            <!-- Search form -->
+            <div class="row tm-row">
+                <div class="col-12">
+                    <form method="GET" class="form-inline tm-mb-40 ">
+                        <input class="form-control tm-search-input" name="busqueda" type="text" placeholder="Buscar..." aria-label="Search">
+                        <button class="tm-search-button" type="submit">
+                            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+                        </button>
+                    </form>
                 </div>
-            </div>}
-
-                    </div>
-
-                    <!--/.First slide-->
-
-                </div>
-                <!--/.Slides-->
-
             </div>
-        </div>
+            @foreach (var item in @ViewBag.Publicacion)
+            {
+            <div class="row tm-row">
+                <div class="col-12">
+                    <hr class="tm-hr-primary tm-mb-55">
+                    
+                    <img width="100%" height="50%" src="~/images/@item.Mascotas.Imagen" alt="Image" class="mb-3 img-fluid">
+
+
+                </div>
+            </div>
+            <div class="row tm-row">
+                <div class="col-lg-8 tm-post-col">
+                    <div class="tm-post-full">
+                        <div class="mb-4">
+                            <h2 class="pt-2 tm-color-primary tm-post-title">@item.Mascotas.Nombre</h2>
+                            <p class="tm-mb-40">Publicado el, @item.FechaPublicacion</p>
+                            <p>
+
+                                Esta mascota de especie: <strong>@item.Especies.Nombre</strong> de tipo
+                                de Raza: <strong>@item.Razas.Nombre</strong> está en adopcion por lo siguiente:
+                                @item.Descripcion
+                            </p>
+                            <p>
+                                Si ud está interesado en esta mascota, puede contactarnos a traves de:
+                                
+                                <a href="https://web.whatsapp.com/"><button class="btn btn-success">WhatsApp</button></a>
+                                <a class="btn btn-primary" href="/Home/Test?IdMascota=@item.Mascotas.Id">adoptar</a>
+                            </p>
+                            <span class="d-block text-right tm-color-primary">Creative . Design . Business</span>
+                        </div>
+
+                        <!-- Comments -->
+                        <div>
+                            <h2 class="tm-color-primary tm-post-title">Comentarios</h2>
+                            <hr class="tm-hr-primary tm-mb-45">
+                            @foreach (var item2 in @item.Comentarios)
+                            {
+                            
+                            
+                            
+                                <div class="tm-comment tm-mb-45">
+                                    <figure class="tm-comment-figure">
+                                        <img src="~/Img/@item2.Usuarios.Imagen" alt="Image" class="mb-2 rounded-circle img-thumbnail">
+                                        
+                                        <figcaption class="tm-color-primary text-center">@item2.Usuarios.Nombres</figcaption>
+                                    </figure>
+                                    <div>
+                                        <p>
+                                            @item2.Descripcion
+                                        </p>
+                                        <div class="d-flex justify-content-between">
+                                            <a href="#" class="tm-color-primary">REPLY</a>
+                                            <span class="tm-color-primary">@item2.FechaPublicacion</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                    <hr />
+                            
+                            }
+
+
+
+
+
+                                                                <form action="/Home/Comentario" method="post" class="mb-5 tm-comment-form">
+                                                                    <h2 class="tm-color-primary tm-post-title mb-4">Comentar</h2>
+                                                                    <input type="hidden" name="IdPublicacion" value="@item.Id" />
+
+                                                                    <div class="mb-4">
+                                                                        <textarea class="form-control" name="descripcion" rows="6"></textarea>
+                                                                    </div>
+                                                                    <div class="text-right">
+                                                                        <button class="tm-btn tm-btn-primary tm-btn-small">Enviar</button>
+                                                                    </div>
+                                                                </form>
+                                                                                </div>
+                    </div>
+                </div>
+                <aside class="col-lg-4 tm-aside-col">
+                    <div class="tm-post-sidebar">
+                        <hr class="mb-3 tm-hr-primary">
+                        <h2 class="mb-4 tm-post-title tm-color-primary">Datos del Dueño</h2>
+                        
+                    <ul class="tm-mb-75 pl-5 tm-category-list">
+
+                        
+                        <li><h6 class="card-title"><b>Nombre: </b> @item.Usuarios.Nombres</h6></li>
+                        <li><h6 class="card-title"><b>Apellido Paterno: </b>@item.Usuarios.ApellidoPaterno</h6></li>
+                        <li><h6 class="card-title"><b>Apellido Materno: </b>@item.Usuarios.ApellidoMaterno</h6></li>
+                        <li><h6 class="card-title"><b>Edad: </b>@item.Usuarios.FechaNacimiento</h6></li>
+                        <li><h6 class="card-title"><b>D.N.I: </b>@item.Usuarios.Dni</h6></li>
+                        <li><h6 class="card-title"><b>Teléfono: </b>@item.Usuarios.Telefono</h6></li>
+
+                    </ul>
+
+                        <hr class="mb-3 tm-hr-primary">
+                        <h2 class="tm-mb-40 tm-post-title tm-color-primary">Mas fotos</h2>
+                        <a href="#" class="d-block tm-mb-40">
+                            <figure>
+                                <img src="~/images/@item.Mascotas.Imagen2" alt="Image" class="mb-3 img-fluid">
+
+                            </figure>
+                        </a>
+                        <a href="#" class="d-block tm-mb-40">
+                            <figure>
+                                <img src="~/images/@item.Mascotas.Imagen3" alt="Image" class="mb-3 img-fluid">
+
+                            </figure>
+                        </a>
+                        <a href="#" class="d-block tm-mb-40">
+                            <figure>
+                                <img src="~/images/@item.Mascotas.Imagen" alt="Image" class="mb-3 img-fluid">
+
+                            </figure>
+                        </a>
+                    </div>
+</aside>
+            </div>
+            }
+            <footer class="row tm-row">
+                <div class="col-md-6 col-12 tm-color-gray">
+
+                </div>
+                <div class="col-md-6 col-12 tm-color-gray tm-copyright">
+                    Copyright 2022 calidad UPN
+                </div>
+            </footer>
+        </main>
     </div>
-   </body>
+</body>
 </html>
 

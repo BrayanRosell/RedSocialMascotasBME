@@ -17,7 +17,6 @@ E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Comentarios.cshtml.g.cs
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\MisMascotas.cshtml.g.cs
-E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\PonerEnAdopccion.cshtml.g.cs
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\RegistarMascota.cshtml.g.cs
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Test.cshtml.g.cs
@@ -61,3 +60,4 @@ E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\red_social_mascotas.dll
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\red_social_mascotas.pdb
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\red_social_mascotas.genruntimeconfig.cache
+E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\PonerEnPublicacion.cshtml.g.cs

@@ -1,4 +1,4 @@
-﻿@{ Layout = "_Layout1"; }
+﻿
 <style>
  
   
@@ -54,16 +54,13 @@
 
 </style>
 <div class="wrapper">
-    <form class="form-signin" action="/Home/guardarPublicacion">
+    
+    <form class="form-signin" action="/Home/PonerEnPublicacion" method="post">
         <h2 class="form-signin-heading">Ingrese la descripcion de la publicacion </h2>
+
         <hr>
-        <h3>mascota</h3>
-        <h4><b>Nombre: </b> @ViewBag.mimascota.Nombre</h4>
-        <h4><b>Raza: </b> @ViewBag.raza[@ViewBag.mimascota.IdRaza].Nombre</h4>
-        <h4><b>Especie: </b> @ViewBag.especie[@ViewBag.mimascota.IdEspecie].Nombre</h4>
-        <input type="hidden"  name="IdMascota" value="@ViewBag.mimascota.Id"/>
-      
-        <input type="text" class="form-control" name="descripcion" placeholder="descripcion de la publicacion" required="" autofocus=""/>
+        <input type="hidden" name="IdMascota" value="@ViewBag.mimascota.Id" />
+        <input type="text" class="form-control" name="descripcion" placeholder="descripcion de la publicacion" required="" autofocus="" />
         <hr>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">publicar</button>

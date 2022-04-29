@@ -21,6 +21,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/Login.css">
+    
 </head>
 
 <body id="Correcto">
@@ -72,6 +73,10 @@
                                 <input type="text" class="form-control" name="Dni" placeholder="Dni" required="" autofocus="" minlength="8" maxlength="9" />
                                 <p class="text-white">@Html.ValidationMessage("Username")</p>
                             </div>
+                            <div class="form-group" id="email-group">
+                                <input type="text" class="form-control" name="Telefono" placeholder="Telefono" required="" autofocus="" minlength="8" maxlength="9" />
+                                <p class="text-white">@Html.ValidationMessage("Username")</p>
+                            </div>
 
                             <div class="form-group" id="contrasena-group">
                                 <input type="password" class="form-control" name="Password" placeholder="Password" required="" />
@@ -81,7 +86,9 @@
                             <div class="form-group" id="contrasena-group">
                                 <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="passwordConf" />
                             </div>
-
+                            <div>
+                                <input type="hidden" name="Imagen" />
+                            </div>
                             <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Registrar </button>
                         </form>
                     </div>

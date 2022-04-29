@@ -11,7 +11,10 @@ namespace red_social_mascotas.BaseDatos.Maps
             builder.ToTable("Publicacion");
             builder.HasKey(o => o.Id);
 
-            
+            builder.HasMany(o => o.Comentarios).
+               WithOne(o => o.Publicaciones).
+               HasForeignKey(o => o.IdPublicacion);
+
 
         }
     }

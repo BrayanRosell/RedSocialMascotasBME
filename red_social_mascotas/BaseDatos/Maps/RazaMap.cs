@@ -15,6 +15,9 @@ namespace red_social_mascotas.BaseDatos.Maps
               WithOne(o => o.Razas).
               HasForeignKey(o => o.IdRaza);
 
+            builder.HasMany(o => o.Publicaciones).
+              WithOne(o => o.Razas).
+              HasForeignKey(o => o.IdRaza);
         }
     }
 }

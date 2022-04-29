@@ -9,5 +9,6 @@ namespace red_social_mascotas.Models
         public String Nombre { get; set; }
 
         public List<Mascota> Mascotas { get; set; }
+        public List<Publicacion> Publicaciones { get; set; }
     }
 }

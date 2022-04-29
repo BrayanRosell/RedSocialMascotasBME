@@ -60,8 +60,8 @@
     }
 </style>
 <div class="wrapper">
-    <form class="form-signin" action="/Home/GuardarMascota" method="post" enctype="multipart/form-data">
-        <h2 class="form-signin-heading">Por favor registrese</h2>
+    <form class="form-signin" action="/Home/registrarMascota" method="post" enctype="multipart/form-data">
+        <h2 class="form-signin-heading">Registrar Mascota</h2>
         <hr>
         <input type="text" class="form-control" name="NombreMascota" placeholder="Nombre de la mascota" required="" autofocus="" />
         <br />
@@ -69,19 +69,29 @@
             <option name="">Elija una especie</option>
             @foreach (var item in ViewBag.Especie)
             {
-<option value="@item.Id"> @item.Nombre</option>            }
+    <option value="@item.Id"> @item.Nombre</option>}
         </select>
         <br />
         <select class="form-control" name="RazaId">
             <option name="">Elija una raza</option>
             @foreach (var item in ViewBag.Raza)
             {
-<option value="@item.Id"> @item.Nombre</option>            }
+    <option value="@item.Id"> @item.Nombre</option>}
         </select>
-       
+        Por favor cargue 3 fotos
         <div class="form-group">
             Imagen
             <input type="file" name="Imagen" />
+
+        </div>
+        <div class="form-group">
+            Imagen 
+            <input type="file" name="Imagen2" />
+
+        </div>
+        <div class="form-group">
+            Imagen
+            <input type="file" name="Imagen3" />
 
         </div>
 

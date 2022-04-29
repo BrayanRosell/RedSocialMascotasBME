@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 using red_social_mascotas.BaseDatos;
 using red_social_mascotas.Models;
 
@@ -12,7 +13,7 @@ namespace red_social_mascotas.Repository
        
         public Usuario ObtenerUsuarioLogin(Claim claim);
         public Usuario EncontrarUsuario(String user, String password);
-        public void AgregarUsuario(string Username, string Password, string Nombres, string Dni, string ApellidoPaterno, string ApellidoMaterno, DateTime FechaNacimiento);
+        public void AgregarUsuario(string Username, string Password, string Nombres, string Dni, string Telefono, string ApellidoPaterno, string ApellidoMaterno, DateTime FechaNacimiento, IFormFile Imagen);
 
         public Dictionary<int, String> IndicesPorId();
     }
@@ -31,16 +32,18 @@ namespace red_social_mascotas.Repository
             return Usuario;
         }
 
-        public void AgregarUsuario(string Username, string Password, string Nombres, string Dni, string ApellidoPaterno, string ApellidoMaterno, DateTime FechaNacimiento)
+        public void AgregarUsuario(string Username, string Password, string Nombres, string Dni, string Telefono, string ApellidoPaterno, string ApellidoMaterno, DateTime FechaNacimiento, IFormFile Imagen)
         {
             Usuario nuevo = new Usuario();
             nuevo.Username = Username;
             nuevo.Password = Password;
             nuevo.Nombres = Nombres;
             nuevo.Dni = Dni;
+            nuevo.Telefono = Telefono;
             nuevo.ApellidoPaterno = ApellidoPaterno;
             nuevo.ApellidoMaterno = ApellidoMaterno;
             nuevo.FechaNacimiento = FechaNacimiento;
+            nuevo.Imagen = "sinFoto.png";
             _context._Usuarios.Add(nuevo);
             _context.SaveChanges();
         }

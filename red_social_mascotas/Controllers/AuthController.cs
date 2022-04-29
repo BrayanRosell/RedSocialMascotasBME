@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using red_social_mascotas.Repository;
 using red_social_mascotas.Service;
@@ -65,9 +66,9 @@ namespace red_social_mascotas.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Registrar(string Username,string Password, string Nombres, string Dni, string ApellidoPaterno, string ApellidoMaterno, DateTime FechaNacimiento)
+        public IActionResult Registrar(string Username,string Password, string Nombres, string Dni, string Telefono, string ApellidoPaterno, string ApellidoMaterno, DateTime FechaNacimiento, IFormFile Imagen)
         {
-            _usuario.AgregarUsuario(Username,Password,Nombres,  Dni,  ApellidoPaterno,  ApellidoMaterno,  FechaNacimiento);
+            _usuario.AgregarUsuario(Username,Password,Nombres,  Dni, Telefono,  ApellidoPaterno,  ApellidoMaterno,  FechaNacimiento, Imagen);
             return RedirectToAction("Login","Auth");
         }
     }

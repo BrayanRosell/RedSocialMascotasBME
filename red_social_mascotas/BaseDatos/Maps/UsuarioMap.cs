@@ -15,6 +15,15 @@ namespace red_social_mascotas.BaseDatos.Maps
                WithOne(o => o.Usuarios).
                HasForeignKey(o => o.IdUsuario);
 
+            builder.HasMany(o => o.Publicaciones).
+              WithOne(o => o.Usuarios).
+              HasForeignKey(o => o.IdUsuario);
+
+            builder.HasMany(o => o.Comentarios).
+              WithOne(o => o.Usuarios).
+              HasForeignKey(o => o.IdUsuario);
+
+
         }
     }
 }
