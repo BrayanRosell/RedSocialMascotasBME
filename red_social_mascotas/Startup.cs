@@ -40,8 +40,9 @@ namespace red_social_mascotas
                 });
       
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-            
             services.AddTransient<ICookieAuthService, CookieAuthService>();
+            services.AddTransient<IRSMascotasContext, RSMascotasContext>();
+           
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

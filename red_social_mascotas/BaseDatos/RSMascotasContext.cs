@@ -1,11 +1,25 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using red_social_mascotas.BaseDatos.Maps;
 using red_social_mascotas.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace red_social_mascotas.BaseDatos
 {
-    public class RSMascotasContext : DbContext
+    public interface IRSMascotasContext
     {
+        DbSet<Comentario> _comentario { get; set; }
+        DbSet<Especie> _especie { get; set; }
+        DbSet<Mascota> _mascotas { get; set; }
+        DbSet<Publicacion> _publicaciones { get; set; }
+        DbSet<Raza> _razas { get; set; }
+        DbSet<Usuario> _Usuarios { get; set; }
+        int SaveChanges();
+       
+    }
+    public class RSMascotasContext : DbContext, IRSMascotasContext
+    {
+       
         public DbSet<Comentario> _comentario { get; set; }
         public DbSet<Especie> _especie { get; set; }
         public DbSet<Mascota> _mascotas { get; set; }
@@ -29,5 +43,6 @@ namespace red_social_mascotas.BaseDatos
             modelBuilder.ApplyConfiguration(new RazaMap());
             modelBuilder.ApplyConfiguration(new UsuarioMap());
         }
+
     }
 }

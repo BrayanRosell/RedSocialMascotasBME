@@ -2,6 +2,10 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using red_social_mascotas.BaseDatos;
+using red_social_mascotas.Models;
+using red_social_mascotas.Repository;
 
 namespace red_social_mascotas.Service
 {
@@ -10,13 +14,21 @@ namespace red_social_mascotas.Service
         void SetHttpContext(HttpContext httpContext);
         public void Login(ClaimsPrincipal claim);
         public Claim ObtenerClaim();
+        Usuario LoggedUser();
     }
 
 
     public class CookieAuthService : ICookieAuthService
     {
         private HttpContext httpContext;
-
+        //private ICookieAuthService _usuario;
+        private IRSMascotasContext context;
+      
+        public CookieAuthService(IRSMascotasContext context)
+        {
+  
+            this.context = context;
+        }
         public void SetHttpContext(HttpContext httpContext)
         {
             this.httpContext = httpContext;
@@ -32,6 +44,22 @@ namespace red_social_mascotas.Service
         {
             var claim = httpContext.User.Claims.FirstOrDefault();
             return claim;
+        }
+        //public Usuario LoggedUser()
+        //{
+
+        //    _cookieAuthService.SetHttpContext(HttpContext);
+        //    var claim = _cookieAuthService.ObtenerClaim();
+        //    var user = _usuario.ObtenerUsuarioLogin(claim);
+        //    return user;
+        //}
+        public Usuario LoggedUser()
+        {
+            
+            var claim = httpContext.User.Claims.FirstOrDefault();
+
+            var user = context._Usuarios.Where(o => o.Username == claim.Value).FirstOrDefault();
+            return user;
         }
     }
 }

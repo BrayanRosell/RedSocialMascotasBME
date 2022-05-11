@@ -21,17 +21,20 @@ namespace red_social_mascotas.Controllers
 
             this._usuario = _usuario;
             this._cookieAuthService = _cookieAuthService;
+            _cookieAuthService.SetHttpContext(HttpContext);
         }
 
         [HttpGet]
         public IActionResult Login()
         {
+            _cookieAuthService.SetHttpContext(HttpContext);
             return View();
         }
 
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
+            _cookieAuthService.SetHttpContext(HttpContext);
             var usuario = _usuario.EncontrarUsuario(username, password);
             if (usuario != null)
             {
@@ -63,11 +66,13 @@ namespace red_social_mascotas.Controllers
         [HttpGet]
         public IActionResult Registrar()
         {
+            _cookieAuthService.SetHttpContext(HttpContext);
             return View();
         }
         [HttpPost]
         public IActionResult Registrar(string Username,string Password, string Nombres, string Dni, string Telefono, string ApellidoPaterno, string ApellidoMaterno, DateTime FechaNacimiento, IFormFile Imagen)
         {
+            _cookieAuthService.SetHttpContext(HttpContext);
             _usuario.AgregarUsuario(Username,Password,Nombres,  Dni, Telefono,  ApellidoPaterno,  ApellidoMaterno,  FechaNacimiento, Imagen);
             return RedirectToAction("Login","Auth");
         }
