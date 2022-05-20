@@ -5,16 +5,14 @@
 
 
     <!-- CSS -->
-   
+
     <style>
         .tm-main {
             width: 90%;
             float: right;
             left: 15%;
-
-
-           
         }
+
         .album-poster2 {
             position: relative;
             display: block;
@@ -39,12 +37,12 @@
 </head>
 <body>
 
-   
+
 
 
 
     <div class="container-fluid">
-       
+
         <main class="tm-main">
             <!-- Search form -->
             <div class="row tm-row">
@@ -59,123 +57,123 @@
             </div>
             @foreach (var item in @ViewBag.Publicacion)
             {
-            <div class="row tm-row">
-                <div class="col-12">
-                    <hr class="tm-hr-primary tm-mb-55">
-                    
-                    <img width="100%" height="50%" src="~/images/@item.Mascotas.Imagen" alt="Image" class="mb-3 img-fluid">
-
-
-                </div>
-            </div>
-            <div class="row tm-row">
-                <div class="col-lg-8 tm-post-col">
-                    <div class="tm-post-full">
-                        <div class="mb-4">
-                            <h2 class="pt-2 tm-color-primary tm-post-title">@item.Mascotas.Nombre</h2>
-                            <p class="tm-mb-40">Publicado el, @item.FechaPublicacion</p>
-                            <p>
-
-                                Esta mascota de especie: <strong>@item.Especies.Nombre</strong> de tipo
-                                de Raza: <strong>@item.Razas.Nombre</strong> está en adopcion por lo siguiente:
-                                @item.Descripcion
-                            </p>
-                            <p>
-                                Si ud está interesado en esta mascota, puede contactarnos a traves de:
-                                
-                                <a href="https://web.whatsapp.com/"><button class="btn btn-success">WhatsApp</button></a>
-                                <a class="btn btn-primary" href="/Home/Test?IdMascota=@item.Mascotas.Id">adoptar</a>
-                            </p>
-                            <span class="d-block text-right tm-color-primary">Creative . Design . Business</span>
-                        </div>
-
-                        <!-- Comments -->
-                        <div>
-                            <h2 class="tm-color-primary tm-post-title">Comentarios</h2>
-                            <hr class="tm-hr-primary tm-mb-45">
-                            @foreach (var item2 in @item.Comentarios)
+                <div class="row tm-row">
+                    <div class="col-12">
+                        <hr class="tm-hr-primary tm-mb-55">
+                        @{ int n = 0;}
+                        @foreach (var itemx in @item.Mascotas.Fotos)
+                        {
+                            @if (n == 0)
                             {
-                            
-                            
-                            
-                                <div class="tm-comment tm-mb-45">
-                                    <figure class="tm-comment-figure">
-                                        <img src="~/Img/@item2.Usuarios.Imagen" alt="Image" class="mb-2 rounded-circle img-thumbnail">
-                                        
-                                        <figcaption class="tm-color-primary text-center">@item2.Usuarios.Nombres</figcaption>
-                                    </figure>
-                                    <div>
-                                        <p>
-                                            @item2.Descripcion
-                                        </p>
-                                        <div class="d-flex justify-content-between">
-                                            <a href="#" class="tm-color-primary">REPLY</a>
-                                            <span class="tm-color-primary">@item2.FechaPublicacion</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                                    <hr />
-                            
+                                <img width="100%" height="50%" src="~/images/@itemx.Imagen" alt="Image" class="mb-3 img-fluid">
+
+                                n++;
                             }
 
+                        }
 
-
-
-
-                                                                <form action="/Home/Comentario" method="post" class="mb-5 tm-comment-form">
-                                                                    <h2 class="tm-color-primary tm-post-title mb-4">Comentar</h2>
-                                                                    <input type="hidden" name="IdPublicacion" value="@item.Id" />
-
-                                                                    <div class="mb-4">
-                                                                        <textarea class="form-control" name="descripcion" rows="6"></textarea>
-                                                                    </div>
-                                                                    <div class="text-right">
-                                                                        <button class="tm-btn tm-btn-primary tm-btn-small">Enviar</button>
-                                                                    </div>
-                                                                </form>
-                                                                                </div>
                     </div>
                 </div>
-                <aside class="col-lg-4 tm-aside-col">
-                    <div class="tm-post-sidebar">
-                        <hr class="mb-3 tm-hr-primary">
-                        <h2 class="mb-4 tm-post-title tm-color-primary">Datos del Dueño</h2>
-                        
-                    <ul class="tm-mb-75 pl-5 tm-category-list">
+                <div class="row tm-row">
+                    <div class="col-lg-8 tm-post-col">
+                        <div class="tm-post-full">
+                            <div class="mb-4">
+                                <h2 class="pt-2 tm-color-primary tm-post-title">@item.Mascotas.Nombre</h2>
+                                <p class="tm-mb-40">Publicado el, @item.FechaPublicacion</p>
+                                <p>
 
-                        
-                        <li><h6 class="card-title"><b>Nombre: </b> @item.Usuarios.Nombres</h6></li>
-                        <li><h6 class="card-title"><b>Apellido Paterno: </b>@item.Usuarios.ApellidoPaterno</h6></li>
-                        <li><h6 class="card-title"><b>Apellido Materno: </b>@item.Usuarios.ApellidoMaterno</h6></li>
-                        <li><h6 class="card-title"><b>Edad: </b>@item.Usuarios.FechaNacimiento</h6></li>
-                        <li><h6 class="card-title"><b>D.N.I: </b>@item.Usuarios.Dni</h6></li>
-                        <li><h6 class="card-title"><b>Teléfono: </b>@item.Usuarios.Telefono</h6></li>
+                                    Esta mascota de especie: <strong>@item.Especies.Nombre</strong> de tipo
+                                    de Raza: <strong>@item.Razas.Nombre</strong> está en adopcion por lo siguiente:
+                                    @item.Descripcion
+                                </p>
+                                <p>
+                                    Si ud está interesado en esta mascota, puede contactarle a traves de:
 
-                    </ul>
+                                    <a href="https://web.whatsapp.com/"><button class="btn btn-success">WhatsApp</button></a>
+                                    @*<a class="btn btn-primary" href="/Home/Test?IdMascota=@item.Mascotas.Id">adoptar</a>*@
+                                </p>
+                                <span class="d-block text-right tm-color-primary">Deja tu comentario</span>
+                            </div>
 
-                        <hr class="mb-3 tm-hr-primary">
-                        <h2 class="tm-mb-40 tm-post-title tm-color-primary">Mas fotos</h2>
-                        <a href="#" class="d-block tm-mb-40">
-                            <figure>
-                                <img src="~/images/@item.Mascotas.Imagen2" alt="Image" class="mb-3 img-fluid">
+                            <!-- Comments -->
+                            <div>
+                                <h2 class="tm-color-primary tm-post-title">Comentarios</h2>
+                                <hr class="tm-hr-primary tm-mb-45">
+                                @foreach (var item2 in @item.Comentarios)
+                                {
 
-                            </figure>
-                        </a>
-                        <a href="#" class="d-block tm-mb-40">
-                            <figure>
-                                <img src="~/images/@item.Mascotas.Imagen3" alt="Image" class="mb-3 img-fluid">
 
-                            </figure>
-                        </a>
-                        <a href="#" class="d-block tm-mb-40">
-                            <figure>
-                                <img src="~/images/@item.Mascotas.Imagen" alt="Image" class="mb-3 img-fluid">
 
-                            </figure>
-                        </a>
+                                    <div class="tm-comment tm-mb-45">
+                                        <figure class="tm-comment-figure">
+                                            <img src="~/Img/@item2.Usuarios.Imagen" alt="Image" class="mb-2 rounded-circle img-thumbnail">
+
+                                            <figcaption class="tm-color-primary text-center">@item2.Usuarios.Nombres</figcaption>
+                                        </figure>
+                                        <div>
+                                            <p>
+                                                @item2.Descripcion
+                                            </p>
+                                            <div class="d-flex justify-content-between">
+                                                <a href="#" class="tm-color-primary">REPLY</a>
+                                                <span class="tm-color-primary">@item2.FechaPublicacion</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+
+                                }
+
+
+
+
+
+                                <form action="/Home/Comentario" method="post" class="mb-5 tm-comment-form">
+                                    <h2 class="tm-color-primary tm-post-title mb-4">Comentar</h2>
+                                    <input type="hidden" name="IdPublicacion" value="@item.Id" />
+
+                                    <div class="mb-4">
+                                        <textarea class="form-control" name="descripcion" rows="6"></textarea>
+                                    </div>
+                                    <div class="text-right">
+                                        <button class="tm-btn tm-btn-primary tm-btn-small">Enviar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-</aside>
-            </div>
+                    <aside class="col-lg-4 tm-aside-col">
+                        <div class="tm-post-sidebar">
+                            <hr class="mb-3 tm-hr-primary">
+                            <h2 class="mb-4 tm-post-title tm-color-primary">Datos del Dueño</h2>
+
+                            <ul class="tm-mb-75 pl-5 tm-category-list">
+
+
+                                <li><h6 class="card-title"><b>Nombre: </b> @item.Usuarios.Nombres</h6></li>
+                                <li><h6 class="card-title"><b>Apellido Paterno: </b>@item.Usuarios.ApellidoPaterno</h6></li>
+                                <li><h6 class="card-title"><b>Apellido Materno: </b>@item.Usuarios.ApellidoMaterno</h6></li>
+                                <li><h6 class="card-title"><b>Edad: </b>@item.Usuarios.FechaNacimiento</h6></li>
+                                <li><h6 class="card-title"><b>D.N.I: </b>@item.Usuarios.Dni</h6></li>
+                                <li><h6 class="card-title"><b>Teléfono: </b>@item.Usuarios.Telefono</h6></li>
+
+                            </ul>
+
+                            <hr class="mb-3 tm-hr-primary">
+                            <h2 class="tm-mb-40 tm-post-title tm-color-primary">Mas fotos</h2>
+                            @foreach (var item3 in @item.Mascotas.Fotos)
+                            {
+                                <a href="#" class="d-block tm-mb-40">
+                                    <figure>
+                                        <img src="~/images/@item3.Imagen" alt="Image" class="mb-3 img-fluid">
+
+                                    </figure>
+                                </a>
+                            }
+
+                        </div>
+                    </aside>
+                </div>
             }
             <footer class="row tm-row">
                 <div class="col-md-6 col-12 tm-color-gray">

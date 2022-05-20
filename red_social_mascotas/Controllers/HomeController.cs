@@ -21,13 +21,14 @@ namespace red_social_mascotas.Controllers
         private readonly IUsuarioRepository _context;
         private readonly ICookieAuthService _cookieAuthService;
         [Obsolete]
-        private IHostingEnvironment env;
-        public HomeController(IUsuarioRepository _context,ICookieAuthService _cookieAuthService, IHostingEnvironment env)
+        private IHostingEnvironment _env;
+        [Obsolete]
+        public HomeController(IUsuarioRepository _context,ICookieAuthService _cookieAuthService, IHostingEnvironment _env)
         {
 
             this._context = _context;
             this._cookieAuthService = _cookieAuthService;
-            env = env;
+            this._env = _env;
             _cookieAuthService.SetHttpContext(HttpContext);
         }
         public IActionResult Index(String busqueda = "")
@@ -86,42 +87,39 @@ namespace red_social_mascotas.Controllers
             return View();
         }
        
-        public IActionResult RegistrarMascota(string NombreMascota, int EspecieId, int RazaId, IFormFile Imagen, IFormFile Imagen2, IFormFile Imagen3)
+        public IActionResult RegistrarMascota(string NombreMascota, int EspecieId, int RazaId, List<IFormFile> Imagen)
         {
             _cookieAuthService.SetHttpContext(HttpContext);
+            List<Foto> picture = new List<Foto>();
             Mascota nueva = new Mascota();
             nueva.Nombre = NombreMascota;
             nueva.EstadoAdoptivo = false;
             nueva.IdEspecie = EspecieId;
             nueva.IdRaza = RazaId;
             nueva.IdUsuario = _cookieAuthService.LoggedUser().Id;
-            nueva.Imagen = "vacio";
+           
 
             if (ModelState.IsValid)
             {
-                var filePath = Path.Combine(env.WebRootPath, "images", Imagen.FileName);
-                var filePath2 = Path.Combine(env.WebRootPath, "images", Imagen2.FileName);
-                var filePath3 = Path.Combine(env.WebRootPath, "images", Imagen3.FileName);
+                _context.RegistrarMascota(nueva);
 
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                foreach (var item in Imagen)
                 {
-                    Imagen.CopyTo(stream);
+                    var image = new Foto();
+
+                    image.IdMascota = nueva.Id;
+                    var filePath = Path.Combine(_env.WebRootPath, "images", item.FileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        item.CopyTo(stream);
+                    }
+
+                    image.Imagen = item.FileName;
+                    picture.Add(image);
                 }
-                using (var stream = new FileStream(filePath2, FileMode.Create))
-                {
-                    Imagen2.CopyTo(stream);
-                }
-                using (var stream = new FileStream(filePath3, FileMode.Create))
-                {
-                    Imagen3.CopyTo(stream);
-                }
-               
-                nueva.Imagen = Imagen.FileName;
-                nueva.Imagen2 = Imagen2.FileName;
-                nueva.Imagen3 = Imagen3.FileName;
             }
-            _context.RegistrarMascota(nueva);
-            return RedirectToAction("Index");
+            _context.RegistrarFotos(picture);
+            return RedirectToAction("MisMascotas");
         }
         [HttpGet]
         public IActionResult PonerEnAdopccion(int IdMascota)

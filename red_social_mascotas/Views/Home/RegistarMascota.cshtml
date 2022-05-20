@@ -69,29 +69,21 @@
             <option name="">Elija una especie</option>
             @foreach (var item in ViewBag.Especie)
             {
-    <option value="@item.Id"> @item.Nombre</option>}
+                <option value="@item.Id"> @item.Nombre</option>
+}
         </select>
         <br />
         <select class="form-control" name="RazaId">
             <option name="">Elija una raza</option>
             @foreach (var item in ViewBag.Raza)
             {
-    <option value="@item.Id"> @item.Nombre</option>}
+                <option value="@item.Id"> @item.Nombre</option>
+}
         </select>
-        Por favor cargue 3 fotos
+        
         <div class="form-group">
             Imagen
-            <input type="file" name="Imagen" />
-
-        </div>
-        <div class="form-group">
-            Imagen 
-            <input type="file" name="Imagen2" />
-
-        </div>
-        <div class="form-group">
-            Imagen
-            <input type="file" name="Imagen3" />
+            <input type="file" name="Imagen" multiple />
 
         </div>
 

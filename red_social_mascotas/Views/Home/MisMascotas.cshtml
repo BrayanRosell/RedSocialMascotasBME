@@ -8,7 +8,16 @@
     <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="~/css/style6.css" />
+
+
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="~/css/style.css" />
+
+
+
+
+
     <!-- Los iconos tipo Solid de Fontawesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
@@ -44,71 +53,99 @@
     </style>
 </head>
 <body>
-    <div align="center">
-        <a href="#" class="btn btn-outline-light rounded-pill pl-5 pr-5" style="color: silver"><h2><strong>Usuario: </strong> @ViewBag.usurioLoged</h2></a>
+    <div class="container">
+
+
         <br />
+        <div align="center">
+            <a href="#" class="btn btn-outline-light rounded-pill pl-5 pr-5" style="background-color: darkturquoise"><h2><strong>Cantidad: </strong> @ViewBag.mismascotas.Count</h2></a>
+            <br />
 
+        </div>
+        <hr />
     </div>
-
     <div align="right">
         <h3><a href="/Home/RegistarMascota" class="btn btn-outline-success">Registrar mascota</a></h3>
     </div>
 
 
     <div class="container-fluid">
-
         <main class="tm-main">
+
 
             @foreach (var item in @ViewBag.mismascotas)
             {
-                <div class="col-md-3" style="float:left">
-                    <div class="album-poster2">
-
-                        <div class="card mb-2">
-                            <div style="color: blue" align="center">
-                                <br />
-                                <h3>@item.Nombre</h3>
-                                <hr style="border-color:red;" />
-                                <img src="~/images/@item.Imagen" style="border: silver 1px solid; border-radius: 12px" />
-                            </div>
 
 
-                            <div class="card-body">
+                <div class="product">
 
-                                <strong class="card-title"><b>Raza: </b>@ViewBag.raza[@item.IdRaza].Nombre</strong><br />
-                                <strong class="card-title"><b>Especie: </b>@ViewBag.especie[@item.IdEspecie].Nombre</strong><br />
 
-                                <strong class="card-title">
-                                    @if (@item.EstadoAdoptivo == false)
-                                    {
-                                        <div style="color: forestgreen">
-                                            <b>No está en adopción</b>
-                                        </div>
-                                        <br />
-                                        <h3>
-                                            <a href="/Home/PonerEnAdopccion?IdMascota=@item.Id" class="btn btn-primary">Poner en adopcion</a> 
-                                        </h3> }
-                                    else
-                                    {
-                                        <div style="color: darkred">
-                                            <b>Está en adopción</b>
-                                        </div>
-                                        <br />
-                                        <h3><a href="/Home/SacarDeAdopcion?IdMascota=@item.Id" class="btn btn-secondary">Sacar de adopcion</a></h3>}
-                                </strong>
-                            </div>
+                    <div class="product-img" style="color: blue" align="center">
+                        <br />
+                        <h3>@item.Nombre</h3>
 
-                        </div>
+                        <hr style="border-color:red;" />
+
+                        @{ int n = 0;}
+                        @foreach (var itemx in @item.Fotos)
+                        {
+                            @if (n == 0)
+                            {
+                                <div class="product-img">
+                                    <img src="~/images/@itemx.Imagen" style="border: silver 1px solid; border-radius: 12px" />
+                                </div>}n++;
+                        }
+                    </div>
+
+
+
+
+
+
+                    <div class="product-body">
+                        <strong class="card-title"><b>Raza: </b>@ViewBag.raza[@item.IdRaza].Nombre</strong><br />
+                        <strong class="card-title"><b>Especie: </b>@ViewBag.especie[@item.IdEspecie].Nombre</strong><br />
 
                     </div>
+
+
+
+                    <div class="add-to-cart">
+
+                        @if (@item.EstadoAdoptivo == false)
+                        {
+                            <div style="color: forestgreen">
+                                <b>No está en adopción</b>
+                            </div>
+                            <br />
+                            <h3>
+                                <a href="/Home/PonerEnAdopccion?IdMascota=@item.Id" class="add-to-cart-btn">Poner en adopcion</a>
+                            </h3>
+                        }
+                        else
+                        {
+                            <div style="color: darkred">
+                                <b>Está en adopción</b>
+                            </div>
+                            <br />
+                            <h3><a href="/Home/SacarDeAdopcion?IdMascota=@item.Id" class="add-to-cart-btn">Sacar de adopcion</a></h3>
+                        }
+                    </div>
                 </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
 
             }
+        </main>
 
-</main>
-        </div>
+    </div>
 
 
 
 </body>
+
 </html>

@@ -37,6 +37,7 @@ namespace red_social_mascotas.Repository
         Publicacion LisatPublicacion(int IdMascota);
         List<Comentario> ListaComentarios(Publicacion sacarAdopcion, HttpContext httpContext);
         void sacarDeAdopcion(Publicacion sacarAdopcion, List<Comentario> comentary);
+        void RegistrarFotos(List<Foto> picture);
     }
     public class UsuarioRepository : IUsuarioRepository
     {
@@ -67,7 +68,7 @@ namespace red_social_mascotas.Repository
             nuevo.ApellidoPaterno = ApellidoPaterno;
             nuevo.ApellidoMaterno = ApellidoMaterno;
             nuevo.FechaNacimiento = FechaNacimiento;
-            nuevo.Imagen = "sinFoto.png";
+            nuevo.Imagen = "comment-1.jpg";
             _context._Usuarios.Add(nuevo);
             _context.SaveChanges();
         }
@@ -102,7 +103,7 @@ namespace red_social_mascotas.Repository
                 Include(o => o.Razas).
                 Include(h => h.Usuarios).
                 Include(z => z.Especies).
-                Include(o => o.Mascotas).
+                Include(o => o.Mascotas.Fotos).
                 Include(s => s.Comentarios).
                 ToList();
         }
@@ -129,7 +130,7 @@ namespace red_social_mascotas.Repository
         {
             _cookieAuthService.SetHttpContext(httpContext);
             Usuario user = _cookieAuthService.LoggedUser();
-            return _context._mascotas.Where(o => o.IdUsuario == user.Id).ToList();
+            return _context._mascotas.Where(o => o.IdUsuario == user.Id).Include(s => s.Fotos).ToList();
         }
 
         public List<Raza> ListaRazas()
@@ -193,6 +194,12 @@ namespace red_social_mascotas.Repository
         {
             _context._publicaciones.Remove(sacarAdopcion);
             _context._comentario.RemoveRange(comentary);
+        }
+
+        public void RegistrarFotos(List<Foto> picture)
+        {
+            _context._Fotos.AddRange(picture);
+            _context.SaveChanges();
         }
     }
 }

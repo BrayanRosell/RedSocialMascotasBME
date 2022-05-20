@@ -11,14 +11,10 @@ namespace red_social_mascotas.Models
         public int IdEspecie { get; set; }
         public int IdRaza{ get; set; }
         public int IdUsuario { get; set; }
-        
-        public String Imagen { get; set; }
-        public String Imagen2 { get; set; }
-        public String Imagen3 { get; set; }
         public Usuario Usuarios { get; set; }
         public Raza Razas { get; set; }
         public Especie Especies { get; set; }
         public List<Publicacion> Publicaciones { get; set; }
-
+        public List<Foto> Fotos { get; set; }
     }
 }

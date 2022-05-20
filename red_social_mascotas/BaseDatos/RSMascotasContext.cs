@@ -14,6 +14,7 @@ namespace red_social_mascotas.BaseDatos
         DbSet<Publicacion> _publicaciones { get; set; }
         DbSet<Raza> _razas { get; set; }
         DbSet<Usuario> _Usuarios { get; set; }
+        DbSet<Foto> _Fotos { get; set; }
         int SaveChanges();
        
     }
@@ -26,7 +27,7 @@ namespace red_social_mascotas.BaseDatos
         public DbSet<Publicacion> _publicaciones { get; set; }
         public DbSet<Raza> _razas { get; set; }
         public DbSet<Usuario> _Usuarios { get; set; }
-
+        public DbSet<Foto> _Fotos { get; set; }
 
         public RSMascotasContext(DbContextOptions<RSMascotasContext> options)
             : base(options)
@@ -42,6 +43,7 @@ namespace red_social_mascotas.BaseDatos
             modelBuilder.ApplyConfiguration(new PublicacionMap());
             modelBuilder.ApplyConfiguration(new RazaMap());
             modelBuilder.ApplyConfiguration(new UsuarioMap());
+            modelBuilder.ApplyConfiguration(new FotoMap());
         }
 
     }

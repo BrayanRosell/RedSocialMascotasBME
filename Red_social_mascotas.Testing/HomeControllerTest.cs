@@ -42,7 +42,41 @@ namespace Red_social_mascotas.Testing
             var env = new Mock<IHostingEnvironment>();
             var controller = new HomeController(_context.Object, _cookieAuthService.Object,null);
             var view = controller.RegistarMascota() as ViewResult;
-
+            //RedirectToActionResult
+            Assert.IsNotNull(view);
+        }
+       
+        [Test]
+        public void RegistarMascota()
+        {
+            var _context = new Mock<IUsuarioRepository>();
+            var _cookieAuthService = new Mock<ICookieAuthService>();
+            _cookieAuthService.Setup(o => o.LoggedUser()).Returns(new Usuario());
+            var controller = new HomeController(_context.Object, _cookieAuthService.Object, null);
+            var view = controller.RegistarMascota() as ViewResult;
+            //RedirectToActionResult
+            Assert.IsNotNull(view);
+        }
+        [Test]
+        public void PonerEnPublicacion()
+        {
+            var _context = new Mock<IUsuarioRepository>();
+            var _cookieAuthService = new Mock<ICookieAuthService>();
+            _cookieAuthService.Setup(o => o.LoggedUser()).Returns(new Usuario());
+            var controller = new HomeController(_context.Object, _cookieAuthService.Object, null);
+            var view = controller.PonerEnPublicacion(new Mascota()) as ViewResult;
+            //RedirectToActionResult
+            Assert.IsNotNull(view);
+        }
+        [Test]
+        public void Privacy()
+        {
+            var _context = new Mock<IUsuarioRepository>();
+            var _cookieAuthService = new Mock<ICookieAuthService>();
+            _cookieAuthService.Setup(o => o.LoggedUser()).Returns(new Usuario());
+            var controller = new HomeController(_context.Object, _cookieAuthService.Object, null);
+            var view = controller.Privacy() as ViewResult;
+            //RedirectToActionResult
             Assert.IsNotNull(view);
         }
     }

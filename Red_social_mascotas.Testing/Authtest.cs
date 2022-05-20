@@ -19,7 +19,7 @@ namespace Red_social_mascotas.Testing
     {
         [Test]
        
-        public void IndexGet()
+        public void LoginGet()
         {
             var _usuario = new Mock<IUsuarioRepository>();
             var _cookieAuthService = new Mock<ICookieAuthService>();
@@ -29,6 +29,20 @@ namespace Red_social_mascotas.Testing
             var view = controller.Login() as ViewResult;
 
             Assert.IsNotNull(view);
+
+        }
+        [Test]
+
+        public void LoginPost()
+        {
+            var _usuario = new Mock<IUsuarioRepository>();
+            var _cookieAuthService = new Mock<ICookieAuthService>();
+
+
+            var controller = new AuthController(_usuario.Object, _cookieAuthService.Object);
+            var view = controller.Login("Yudith","aaaaaa") as ViewResult;
+
+            Assert.IsNotNull(view); 
 
         }
     }
