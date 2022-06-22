@@ -21,14 +21,17 @@ namespace red_social_mascotas.BaseDatos
     public class RSMascotasContext : DbContext, IRSMascotasContext
     {
        
-        public DbSet<Comentario> _comentario { get; set; }
-        public DbSet<Especie> _especie { get; set; }
-        public DbSet<Mascota> _mascotas { get; set; }
-        public DbSet<Publicacion> _publicaciones { get; set; }
-        public DbSet<Raza> _razas { get; set; }
-        public DbSet<Usuario> _Usuarios { get; set; }
-        public DbSet<Foto> _Fotos { get; set; }
+        public virtual DbSet<Comentario> _comentario { get; set; }
+        public virtual DbSet<Especie> _especie { get; set; }
+        public virtual DbSet<Mascota> _mascotas { get; set; }
+        public virtual DbSet<Publicacion> _publicaciones { get; set; }
+        public virtual DbSet<Raza> _razas { get; set; }
+        public virtual DbSet<Usuario> _Usuarios { get; set; }
+        public virtual DbSet<Foto> _Fotos { get; set; }
+        public RSMascotasContext()
+        {
 
+        }
         public RSMascotasContext(DbContextOptions<RSMascotasContext> options)
             : base(options)
         {

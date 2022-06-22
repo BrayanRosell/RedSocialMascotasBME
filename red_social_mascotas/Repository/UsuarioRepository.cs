@@ -44,7 +44,7 @@ namespace red_social_mascotas.Repository
         private IRSMascotasContext _context;
         private readonly ICookieAuthService _cookieAuthService;
 
-        public UsuarioRepository(RSMascotasContext context, ICookieAuthService cookieAuthService)
+        public UsuarioRepository(IRSMascotasContext context, ICookieAuthService cookieAuthService)
         {
             _context = context;
             _cookieAuthService = cookieAuthService;

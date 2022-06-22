@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>Red_social_mascotas.Testing</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Test</ProjectType>
+  <ProjectGuid>46ff8cb8-0d6a-4f49-8317-074798a05720</ProjectGuid>
+  <FullPath>E:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\Red_social_mascotas.Testing.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="E:\Brayan\Calidad\red_social_mascotas\.sonarqube\conf\1\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">E:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\bin\Debug\netcoreapp3.1\Red_social_mascotas.Testing.dll.RoslynCA.json|E:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\bin\Debug\netcoreapp3.1\Red_social_mascotas.Testing.dll.RoslynCA.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">E:\Brayan\Calidad\red_social_mascotas\.sonarqube\out\1</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>netcoreapp3.1</TargetFramework>
+</ProjectInfo>

@@ -47,6 +47,7 @@ namespace Red_social_mascotas.Testing
         }
        
         [Test]
+        [Obsolete]
         public void RegistarMascota()
         {
             var _context = new Mock<IUsuarioRepository>();
@@ -58,6 +59,7 @@ namespace Red_social_mascotas.Testing
             Assert.IsNotNull(view);
         }
         [Test]
+        [Obsolete]
         public void PonerEnPublicacion()
         {
             var _context = new Mock<IUsuarioRepository>();
@@ -69,6 +71,7 @@ namespace Red_social_mascotas.Testing
             Assert.IsNotNull(view);
         }
         [Test]
+        [Obsolete]
         public void Privacy()
         {
             var _context = new Mock<IUsuarioRepository>();

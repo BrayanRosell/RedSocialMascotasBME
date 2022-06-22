@@ -1,0 +1,182 @@
+{
+  "id": "c04270e5-9c4c-48f9-b3f9-04d9fd677b41",
+  "version": "2.0",
+  "name": "RedSocialMascotas",
+  "url": "https://localhost:44305",
+  "tests": [{
+    "id": "ae525455-706c-431a-920e-037abe6b7c60",
+    "name": "LoginCorrecto",
+    "commands": [{
+      "id": "0cf707ac-8aa0-471d-8b59-03338cc873d9",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3857ae82-024e-43af-8622-e7549d67abd8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "816x860",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0882f7fe-e3fb-4cf0-b222-f5d7dcbab1ca",
+      "comment": "",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#user-group > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//div[@id='user-group']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9f0703a4-9a69-4a77-82d6-d1f542fbe5d0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//body[@id='Correcto']/header/div/div[2]/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,' Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d83a6647-20b3-4e37-b6b2-1f02b2a0f4e5",
+    "name": "cargaHome",
+    "commands": [{
+      "id": "a83e8fc8-2018-48f6-ae9b-cf7895296344",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "96b53e71-aade-4398-9684-0da45343aa6e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "816x860",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bfd83279-139c-4f8d-88c9-4606f3df2dbf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//body[@id='Correcto']/header/div/div[2]/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,' Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "929a4d82-7655-4631-9495-d2d2df9b3de8",
+    "name": "cargaMisMascotas",
+    "commands": [{
+      "id": "9f23f546-7546-44fb-9d8d-6d60ae6c66ba",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eb95ca83-2709-4c02-a77c-e6931686384e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "816x860",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2d21f49-6cdb-41cf-a64f-555c7c5f1e52",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//body[@id='Correcto']/header/div/div[2]/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,' Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6404957-ed74-496f-aac2-bb3417af5f65",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Mis Mascotas",
+      "targets": [
+        ["linkText=Mis Mascotas", "linkText"],
+        ["css=.tm-nav-item:nth-child(2) > .tm-nav-link", "css:finder"],
+        ["xpath=//nav[@id='tm-nav']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/Home/MisMascotas')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Mis Mascotas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d8574398-ccc6-4aef-9726-6cdd5a2a3b9b",
+    "name": "cargaConocenos",
+    "commands": [{
+      "id": "f17d517e-a623-4adb-8c7a-7ef6a1c6e83c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1a7f906c-8a0c-4cbb-997f-17f91cb98e36",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "816x860",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "81102d0c-7e93-493f-93ab-d1c78819e173",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//body[@id='Correcto']/header/div/div[2]/div/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,' Ingresar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "34dfc8ee-829c-44f2-9739-487ba9384691",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Conocenos",
+      "targets": [
+        ["linkText=Conocenos", "linkText"],
+        ["css=.tm-nav-item:nth-child(3) > .tm-nav-link", "css:finder"],
+        ["xpath=//nav[@id='tm-nav']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/Home/Privacy')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Conocenos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "cbaf91b1-dd08-4740-b307-f70fffe72d12",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://localhost:44305/"],
+  "plugins": []
+}

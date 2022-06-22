@@ -86,7 +86,8 @@ namespace red_social_mascotas.Controllers
             ViewBag.Raza = _context.ListaRazas();
             return View();
         }
-       
+
+        [Obsolete]
         public IActionResult RegistrarMascota(string NombreMascota, int EspecieId, int RazaId, List<IFormFile> Imagen)
         {
             _cookieAuthService.SetHttpContext(HttpContext);

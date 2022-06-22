@@ -1,0 +1,16 @@
+
+tE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Login.cshtml.g.csutf-8É
+xE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Registrar.cshtml.g.csutf-8Ö
+zE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Comentarios.cshtml.g.csutf-8
+tE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.csutf-8Ö
+zE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\MisMascotas.cshtml.g.csutf-8ç
+ÅE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\PonerEnPublicacion.cshtml.g.csutf-8Å
+vE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.csutf-8â
+~E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\RegistarMascota.cshtml.g.csutf-8~
+sE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Test.cshtml.g.csutf-8Å
+vE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.csutf-8É
+xE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.csutf-8ñ
+äE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.csutf-8Å
+vE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.csutf-8
+tE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.csutf-8å
+ÄE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\red_social_mascotas.RazorTargetAssemblyInfo.csutf-8
