@@ -31,18 +31,29 @@ namespace red_social_mascotas.Controllers
             this._env = _env;
             _cookieAuthService.SetHttpContext(HttpContext);
         }
-        public IActionResult Index(String busqueda = "")
+        public IActionResult Index(String search)
         {
             _cookieAuthService.SetHttpContext(HttpContext);
             ViewBag.usurioLoged = _cookieAuthService.LoggedUser().Username;
             ViewBag.Imagen = _cookieAuthService.LoggedUser().Imagen;
             ViewBag.duenio = _context.ListaMascotasTrue();
             ViewBag.Publicacion = _context.LisatPublicaciones();
+            var mascotas = _context.ListaMascotas(HttpContext);
+            //
+            if (!String.IsNullOrEmpty(search))
+            {
+                ViewBag.VerificaMascota = mascotas.Where(s => s.Nombre.Contains(search)).FirstOrDefault(); 
+                mascotas = mascotas.Where(o => o.Nombre.Contains(search)).ToList();
+                ViewBag.mascotaPase = mascotas;
+                return View("Buscar");
+            }
 
+            //
 
             ViewBag.Model = _context.ListaUsuariosConComentarios();//no eliminar
             return View();
         }
+       
         [HttpPost]
         public IActionResult Comentario(int IdPublicacion, String descripcion)
         {
@@ -182,7 +193,7 @@ namespace red_social_mascotas.Controllers
         {
             
             ViewBag.IdMascota = IdMascota;
-            return View();
+            return View("Test");
         }
 
         public IActionResult calificar(int IdMascota, int select1, int select2, int select3, int select4, int select5)

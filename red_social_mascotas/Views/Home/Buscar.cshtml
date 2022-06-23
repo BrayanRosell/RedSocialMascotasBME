@@ -1,0 +1,152 @@
+﻿
+<html lang="en">
+<head>
+    <title>Dashboard - pets</title>
+
+
+    <!-- CSS -->
+
+    <style>
+        .tm-main {
+            width: 90%;
+            float: right;
+            left: 15%;
+        }
+
+        .album-poster2 {
+            position: relative;
+            display: block;
+            border-radius: 7px;
+            width: 230px;
+            height: 525px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px #3d2173a1;
+            transition: all ease 0.4s;
+        }
+
+            .album-poster2:hover {
+                box-shadow: none;
+                transform: scale(0.98) translateY(5px);
+            }
+
+            .album-poster2 img {
+                width: 200px;
+                height: 200px;
+            }
+    </style>
+</head>
+<body>
+
+
+
+
+
+    <div class="container-fluid">
+
+        <main class="tm-main">
+            <!-- Search form -->
+            <div class="row tm-row">
+                <div class="col-12">
+                    <form method="GET" class="form-inline tm-mb-40 ">
+                        <input class="form-control tm-search-input" name="search" type="text" placeholder="Buscar..." aria-label="Search">
+                        <button class="tm-search-button" type="submit">
+                            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            @if (ViewBag.VerificaMascota != null)
+            {
+                @foreach (var item in @ViewBag.mascotaPase)
+                {
+                    <div class="row tm-row">
+                        <div class="col-12">
+                            <hr class="tm-hr-primary tm-mb-55">
+                            @{ int n = 0;}
+                            @foreach (var itemx in @item.Fotos)
+                            {
+                                @if (n == 0)
+                                {
+                                    <img width="100%" height="50%" src="~/images/@itemx.Imagen" alt="Image" class="mb-3 img-fluid">
+
+                                    n++;
+                                }
+
+                            }
+
+                        </div>
+                    </div>
+                    <div class="row tm-row">
+                        <div class="col-lg-8 tm-post-col">
+                            <div class="tm-post-full">
+                                <div class="mb-4">
+                                    <h2 class="pt-2 tm-color-primary tm-post-title">@item.Nombre</h2>
+                                  
+                                    
+                                    <p>
+                                        Si ud está interesado en esta mascota, puede contactarle a traves de:
+
+                                        <a href="https://web.whatsapp.com/"><button class="btn btn-success">WhatsApp</button></a>
+                                        @*<a class="btn btn-primary" href="/Home/Test?IdMascota=@item.Mascotas.Id">adoptar</a>*@
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <aside class="col-lg-4 tm-aside-col">
+                            <div class="tm-post-sidebar">
+                                <hr class="mb-3 tm-hr-primary">
+                                <h2 class="mb-4 tm-post-title tm-color-primary">Datos del Dueño</h2>
+
+                                <ul class="tm-mb-75 pl-5 tm-category-list">
+
+
+                                    <li><h6 class="card-title"><b>Nombre: </b> @item.Usuarios.Nombres</h6></li>
+                                    <li><h6 class="card-title"><b>Apellido Paterno: </b>@item.Usuarios.ApellidoPaterno</h6></li>
+                                    <li><h6 class="card-title"><b>Apellido Materno: </b>@item.Usuarios.ApellidoMaterno</h6></li>
+                                    <li><h6 class="card-title"><b>Edad: </b>@item.Usuarios.FechaNacimiento</h6></li>
+                                    <li><h6 class="card-title"><b>D.N.I: </b>@item.Usuarios.Dni</h6></li>
+                                    <li><h6 class="card-title"><b>Teléfono: </b>@item.Usuarios.Telefono</h6></li>
+
+                                </ul>
+
+
+
+                            </div>
+                        </aside>
+                    </div>
+
+                    <hr class="mb-3 tm-hr-primary">
+                    <h2 class="tm-mb-40 tm-post-title tm-color-primary">Mas fotos</h2>
+                    @foreach (var item3 in @item.Fotos)
+                    {
+                              
+                        <a href="#" class="">
+                            <figure>
+                                <img width="100%" height="50%" src="~/images/@item3.Imagen" alt="Image" class="mb-3 img-fluid">
+
+                            </figure>
+                        </a>
+                        
+                    }
+                }
+            }
+            else
+            {
+                <h5> No se encontro nada</h5>
+            }
+            <footer class="row tm-row">
+                <div class="col-md-6 col-12 tm-color-gray">
+
+                </div>
+                <div class="col-md-6 col-12 tm-color-gray tm-copyright">
+                    Copyright 2022 calidad UPN
+                </div>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
+

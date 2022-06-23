@@ -130,7 +130,7 @@ namespace red_social_mascotas.Repository
         {
             _cookieAuthService.SetHttpContext(httpContext);
             Usuario user = _cookieAuthService.LoggedUser();
-            return _context._mascotas.Where(o => o.IdUsuario == user.Id).Include(s => s.Fotos).ToList();
+            return _context._mascotas.Where(o => o.IdUsuario == user.Id | o.IdUsuario != user.Id).Include(s => s.Fotos).ToList();
         }
 
         public List<Raza> ListaRazas()

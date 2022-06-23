@@ -9,6 +9,7 @@ using Red_social_mascotas.Testing.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 
 namespace Red_social_mascotas.Testing.TestRepos
@@ -74,27 +75,41 @@ namespace Red_social_mascotas.Testing.TestRepos
         [Test]
         public void ListaMascotasTest()
         {
+            var mockClaimsPrincipal = new Mock<ClaimsPrincipal>();
+            mockClaimsPrincipal.Setup(o => o.Claims).Returns(new List<Claim>
+            {new Claim(ClaimTypes.Name, "Brayan")});
+            var mockContext = new Mock<HttpContext>();
+            mockContext.Setup(o => o.User).Returns(mockClaimsPrincipal.Object);
+
+            var date1 = new DateTime(2008, 5, 1, 8, 30, 52);
+
+            var mockDBICookieAuthService = new Mock<ICookieAuthService>();
+            mockDBICookieAuthService.Setup(o => o.Login(mockClaimsPrincipal.Object));
+            mockDBICookieAuthService.Setup(o => o.LoggedUser()).Returns(new Usuario() { Id = 1, Username = "Meyler", Nombres = "Meyler", Password = "aaaaaa", Dni = "18759643", ApellidoPaterno = "Tejada", ApellidoMaterno = "Portilla", FechaNacimiento = date1, Telefono = "976485912", Imagen = "about-02.jpg" });
+
+
             var mockDbSetMascota = new MockDBSet<Mascota>(data);
             var mockDB = new Mock<RSMascotasContext>();
             mockDB.Setup(o => o._mascotas).Returns(mockDbSetMascota.Object);
 
-            var repo = new UsuarioRepository(mockDB.Object, null);
+            var repo = new UsuarioRepository(mockDB.Object, mockDBICookieAuthService.Object);
             
-            //var rpta = repo.ListaMascotas(null);
-            //Assert.IsNull(rpta);
+            var rpta = repo.ListaMascotas(mockContext.Object);
+            Assert.IsNotNull(rpta);
         }
         [Test]
         public void VoidRegistrarMascotaTest()
         {
+            
+
             var mockDbSetMascota = new MockDBSet<Mascota>(data);
             var mockDB = new Mock<RSMascotasContext>();
             mockDB.Setup(o => o._mascotas).Returns(mockDbSetMascota.Object);
-  
+            
             var repo = new UsuarioRepository(mockDB.Object, null);
-            repo.RegistrarMascota(new Mascota() { Id = 1, Nombre = "mascota", EstadoAdoptivo = true, IdEspecie = 1, IdUsuario = 5, IdRaza = 3 });
-
-            //var datoMockAddUser = data.First(o => o.Id == 1);
-            //mockDbSetMascota.Verify(o => o.Add(datoMockAddUser), Times.Once());
+            var mascota = new Mascota() { Id = 1, Nombre = "mascota", EstadoAdoptivo = true, IdEspecie = 1, IdUsuario = 5, IdRaza = 3 };
+            repo.RegistrarMascota(mascota);
+            mockDbSetMascota.Verify(o => o.Add(mascota), Times.Once());
         }
     }
 }

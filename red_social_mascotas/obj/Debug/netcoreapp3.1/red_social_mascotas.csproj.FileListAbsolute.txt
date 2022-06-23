@@ -61,3 +61,4 @@ E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\red_social_mascotas.pdb
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\red_social_mascotas.genruntimeconfig.cache
 E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\PonerEnPublicacion.cshtml.g.cs
+E:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Buscar.cshtml.g.cs

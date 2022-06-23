@@ -9,6 +9,7 @@ using red_social_mascotas.Service;
 using Red_social_mascotas.Testing.Helper;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -59,12 +60,25 @@ namespace Red_social_mascotas.Testing
             var mockDB = new Mock<RSMascotasContext>();
             mockDB.Setup(o => o._Usuarios).Returns(mockDbSetUsuario.Object);
             var date1 = new DateTime(2008, 5, 1, 8, 30, 52);
-            IFormFile foto = null;
+
+            var mockIformFile = new Mock<IFormFile>();
             var repo = new UsuarioRepository(mockDB.Object, null);
-            repo.AgregarUsuario("Meyler", "aaaaaa", "Meyler", "18759643", "976485912", "Portilla", "PortillaMaterno", date1, foto);
+            Usuario nuevo = new Usuario()
+            {
+                Username = "Meyler",
+                Password = "aaaaaa",
+                Nombres = "Meyler",
+                Dni = "18759643",
+                Telefono = "976485912",
+                ApellidoPaterno = "Portilla",
+                ApellidoMaterno = "PortillaMaterno",
+                FechaNacimiento = date1,
+                Imagen = "image"
+            };
+            repo.AgregarUsuario(nuevo.Username, nuevo.Password, nuevo.Nombres, nuevo.Dni, nuevo.Telefono, nuevo.ApellidoPaterno, nuevo.ApellidoMaterno, nuevo.FechaNacimiento, mockIformFile.Object);
 
             //var datoMockAddUser = data.First(o => o.Id == 1);
-            //mockDbSetUsuario.Verify(o => o.Add(datoMockAddUser), Times.Once());
+            //mockDbSetUsuario.Verify(o => o.Add(nuevo), Times.Once());
         }
 
     }
