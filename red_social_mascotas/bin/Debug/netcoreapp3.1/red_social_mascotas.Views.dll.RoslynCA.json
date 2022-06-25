@@ -1365,12 +1365,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/PonerEnPublicacion.cshtml.g.cs",
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs",
                 "region": {
-                  "startLine": 120,
-                  "startColumn": 210,
-                  "endLine": 120,
-                  "endColumn": 212
+                  "startLine": 34,
+                  "startColumn": 67,
+                  "endLine": 34,
+                  "endColumn": 79
                 }
               }
             }
@@ -1389,12 +1389,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs",
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/PonerEnPublicacion.cshtml.g.cs",
                 "region": {
-                  "startLine": 34,
-                  "startColumn": 67,
-                  "endLine": 34,
-                  "endColumn": 79
+                  "startLine": 120,
+                  "startColumn": 210,
+                  "endLine": 120,
+                  "endColumn": 212
                 }
               }
             }
@@ -1502,6 +1502,54 @@
         {
           "ruleId": "CS0169",
           "level": "warning",
+          "message": "The field 'Views_Home_Comentarios.__tagHelperStringValueBuffer' is never used",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/Comentarios.cshtml.g.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 24,
+                  "endLine": 41,
+                  "endColumn": 52
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 3
+          }
+        },
+        {
+          "ruleId": "CS0169",
+          "level": "warning",
+          "message": "The field 'Views_Shared__ValidationScriptsPartial.__tagHelperStringValueBuffer' is never used",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 24,
+                  "endLine": 41,
+                  "endColumn": 52
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 3
+          }
+        },
+        {
+          "ruleId": "CS0169",
+          "level": "warning",
           "message": "The field 'Views_Auth_Login.__tagHelperStringValueBuffer' is never used",
           "suppressionStates": [
             "suppressedInSource"
@@ -1526,18 +1574,42 @@
         {
           "ruleId": "CS0169",
           "level": "warning",
-          "message": "The field 'Views_Home_Test.__tagHelperStringValueBuffer' is never used",
+          "message": "The field 'Views_Home_Buscar.__tagHelperStringValueBuffer' is never used",
           "suppressionStates": [
             "suppressedInSource"
           ],
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/Test.cshtml.g.cs",
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/Buscar.cshtml.g.cs",
                 "region": {
-                  "startLine": 44,
+                  "startLine": 45,
                   "startColumn": 24,
-                  "endLine": 44,
+                  "endLine": 45,
+                  "endColumn": 52
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 3
+          }
+        },
+        {
+          "ruleId": "CS0169",
+          "level": "warning",
+          "message": "The field 'Views_Home_PonerEnPublicacion.__tagHelperStringValueBuffer' is never used",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/PonerEnPublicacion.cshtml.g.cs",
+                "region": {
+                  "startLine": 42,
+                  "startColumn": 24,
+                  "endLine": 42,
                   "endColumn": 52
                 }
               }
@@ -1598,66 +1670,18 @@
         {
           "ruleId": "CS0169",
           "level": "warning",
-          "message": "The field 'Views_Home_PonerEnPublicacion.__tagHelperStringValueBuffer' is never used",
+          "message": "The field 'Views_Home_Test.__tagHelperStringValueBuffer' is never used",
           "suppressionStates": [
             "suppressedInSource"
           ],
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/PonerEnPublicacion.cshtml.g.cs",
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/Test.cshtml.g.cs",
                 "region": {
-                  "startLine": 42,
+                  "startLine": 44,
                   "startColumn": 24,
-                  "endLine": 42,
-                  "endColumn": 52
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 3
-          }
-        },
-        {
-          "ruleId": "CS0169",
-          "level": "warning",
-          "message": "The field 'Views_Home_Buscar.__tagHelperStringValueBuffer' is never used",
-          "suppressionStates": [
-            "suppressedInSource"
-          ],
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/Buscar.cshtml.g.cs",
-                "region": {
-                  "startLine": 45,
-                  "startColumn": 24,
-                  "endLine": 45,
-                  "endColumn": 52
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 3
-          }
-        },
-        {
-          "ruleId": "CS0169",
-          "level": "warning",
-          "message": "The field 'Views_Home_Comentarios.__tagHelperStringValueBuffer' is never used",
-          "suppressionStates": [
-            "suppressedInSource"
-          ],
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Home/Comentarios.cshtml.g.cs",
-                "region": {
-                  "startLine": 41,
-                  "startColumn": 24,
-                  "endLine": 41,
+                  "endLine": 44,
                   "endColumn": 52
                 }
               }
@@ -1682,30 +1706,6 @@
                   "startLine": 45,
                   "startColumn": 24,
                   "endLine": 45,
-                  "endColumn": 52
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 3
-          }
-        },
-        {
-          "ruleId": "CS0169",
-          "level": "warning",
-          "message": "The field 'Views_Shared__ValidationScriptsPartial.__tagHelperStringValueBuffer' is never used",
-          "suppressionStates": [
-            "suppressedInSource"
-          ],
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs",
-                "region": {
-                  "startLine": 41,
-                  "startColumn": 24,
-                  "endLine": 41,
                   "endColumn": 52
                 }
               }

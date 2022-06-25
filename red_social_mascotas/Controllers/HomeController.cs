@@ -62,8 +62,7 @@ namespace red_social_mascotas.Controllers
         [HttpGet]
         public IActionResult MisMascotas()
         {
-            //HttpResponse();
-            //Status code
+           
             _cookieAuthService.SetHttpContext(HttpContext);
             ViewBag.usurioLoged = _cookieAuthService.LoggedUser().Username;
             ViewBag.mismascotas = _context.ListaMascotas(HttpContext);

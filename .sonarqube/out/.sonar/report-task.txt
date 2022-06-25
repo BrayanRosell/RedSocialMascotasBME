@@ -2,5 +2,5 @@ projectKey=RedSocialMascotasBME
 serverUrl=https://sonar-test.bit2bittest.com
 serverVersion=9.4.0.54424
 dashboardUrl=https://sonar-test.bit2bittest.com/dashboard?id=RedSocialMascotasBME
-ceTaskId=AYGX110KPdfUTaGcelBB
-ceTaskUrl=https://sonar-test.bit2bittest.com/api/ce/task?id=AYGX110KPdfUTaGcelBB
+ceTaskId=AYGYYXVtPdfUTaGcelEH
+ceTaskUrl=https://sonar-test.bit2bittest.com/api/ce/task?id=AYGYYXVtPdfUTaGcelEH

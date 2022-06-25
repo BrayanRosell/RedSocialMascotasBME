@@ -172,6 +172,48 @@
           }
         },
         {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Repository/UsuarioRepository.cs",
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 67,
+                  "endLine": 97,
+                  "endColumn": 74
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1123",
+          "level": "warning",
+          "message": "Add an explanation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Controllers/HomeController.cs",
+                "region": {
+                  "startLine": 100,
+                  "startColumn": 10,
+                  "endLine": 100,
+                  "endColumn": 18
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "S107",
           "level": "warning",
           "message": "Method has 9 parameters, which is greater than the 7 authorized.",
@@ -205,69 +247,6 @@
                   "startColumn": 35,
                   "endLine": 21,
                   "endColumn": 206
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1125",
-          "level": "warning",
-          "message": "Remove the unnecessary Boolean literal(s).",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Repository/UsuarioRepository.cs",
-                "region": {
-                  "startLine": 97,
-                  "startColumn": 67,
-                  "endLine": 97,
-                  "endColumn": 74
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1123",
-          "level": "warning",
-          "message": "Add an explanation.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Controllers/HomeController.cs",
-                "region": {
-                  "startLine": 99,
-                  "startColumn": 10,
-                  "endLine": 99,
-                  "endColumn": 18
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2178",
-          "level": "warning",
-          "message": "Correct this '|' to '||'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Repository/UsuarioRepository.cs",
-                "region": {
-                  "startLine": 133,
-                  "startColumn": 73,
-                  "endLine": 133,
-                  "endColumn": 74
                 }
               }
             }
@@ -343,22 +322,6 @@
               "SonarWay",
               "MainSourceScope",
               "TestSourceScope"
-            ]
-          }
-        },
-        "S2178": {
-          "id": "S2178",
-          "shortDescription": "Short-circuit logic should be used in boolean contexts",
-          "fullDescription": "The use of non-short-circuit logic in a boolean context is likely a mistake - one that could cause serious program errors as conditions are evaluated under the wrong circumstances.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2178",
-          "properties": {
-            "category": "Blocker Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope"
             ]
           }
         },
