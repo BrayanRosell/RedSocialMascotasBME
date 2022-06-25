@@ -77,7 +77,6 @@ namespace Red_social_mascotas.Testing
             _cookieAuthService.Setup(o => o.LoggedUser()).Returns(new Usuario());
             var controller = new HomeController(_context.Object, _cookieAuthService.Object, null);
             var view = controller.Privacy() as ViewResult;
-            //RedirectToActionResult
             Assert.IsNotNull(view);
         }
         [Test]

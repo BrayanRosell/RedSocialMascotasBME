@@ -21,7 +21,6 @@ namespace red_social_mascotas.Service
     public class CookieAuthService : ICookieAuthService
     {
         private HttpContext httpContext;
-        //private ICookieAuthService _usuario;
         private IRSMascotasContext context;
       
         public CookieAuthService(IRSMascotasContext context)
@@ -45,14 +44,6 @@ namespace red_social_mascotas.Service
             var claim = httpContext.User.Claims.FirstOrDefault();
             return claim;
         }
-        //public Usuario LoggedUser()
-        //{
-
-        //    _cookieAuthService.SetHttpContext(HttpContext);
-        //    var claim = _cookieAuthService.ObtenerClaim();
-        //    var user = _usuario.ObtenerUsuarioLogin(claim);
-        //    return user;
-        //}
         public Usuario LoggedUser()
         {
             

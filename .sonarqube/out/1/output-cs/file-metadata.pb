@@ -1,6 +1,13 @@
-V
-ME:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\Authtest.csutf-8`
-WE:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\HomeControllerTest.csutf-8z
+^
+UE:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\Helper\MockDBSet.csutf-8f
+]E:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\TestControllers\Authtest.csutf-8p
+gE:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\TestControllers\HomeControllerTest.csutf-8p
+gE:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\TestRepos\ComentarioRepositoryTest.csutf-8m
+dE:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\TestRepos\EspecieRepositoriTest.csutf-8m
+dE:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\TestRepos\MascotaRepositoryTest.csutf-8q
+hE:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\TestRepos\PublicacionRepositoryTest.csutf-8j
+aE:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\TestRepos\RazaRepositoryTest.csutf-8m
+dE:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\TestRepos\UsuarioRepositoryTest.csutf-8z
 oC:\Users\HP\.nuget\packages\microsoft.net.test.sdk\16.4.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.csutf-8”
 ˆE:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8‘
 …E:\Brayan\Calidad\red_social_mascotas\Red_social_mascotas.Testing\obj\Debug\netcoreapp3.1\Red_social_mascotas.Testing.AssemblyInfo.csutf-8

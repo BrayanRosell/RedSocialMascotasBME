@@ -39,7 +39,7 @@ namespace red_social_mascotas.Controllers
             ViewBag.duenio = _context.ListaMascotasTrue();
             ViewBag.Publicacion = _context.LisatPublicaciones();
             var mascotas = _context.ListaMascotas(HttpContext);
-            //
+            
             if (!String.IsNullOrEmpty(search))
             {
                 ViewBag.VerificaMascota = mascotas.Where(s => s.Nombre.Contains(search)).FirstOrDefault(); 
@@ -48,9 +48,7 @@ namespace red_social_mascotas.Controllers
                 return View("Buscar");
             }
 
-            //
-
-            ViewBag.Model = _context.ListaUsuariosConComentarios();//no eliminar
+            ViewBag.Model = _context.ListaUsuariosConComentarios();
             return View();
         }
        
@@ -59,11 +57,13 @@ namespace red_social_mascotas.Controllers
         {
             _cookieAuthService.SetHttpContext(HttpContext);
             _context.AddComentary(IdPublicacion,descripcion, HttpContext);
-            return RedirectToAction("Index"/*,nuevo*/);
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult MisMascotas()
-        { 
+        {
+            //HttpResponse();
+            //Status code
             _cookieAuthService.SetHttpContext(HttpContext);
             ViewBag.usurioLoged = _cookieAuthService.LoggedUser().Username;
             ViewBag.mismascotas = _context.ListaMascotas(HttpContext);

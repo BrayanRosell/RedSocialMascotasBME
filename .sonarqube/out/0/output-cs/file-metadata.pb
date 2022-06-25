@@ -1,6 +1,7 @@
 
 tE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Login.cshtml.g.csutf-8É
-xE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Registrar.cshtml.g.csutf-8Ö
+xE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Registrar.cshtml.g.csutf-8Ä
+uE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Buscar.cshtml.g.csutf-8Ö
 zE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Comentarios.cshtml.g.csutf-8
 tE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.csutf-8Ö
 zE:\Brayan\Calidad\red_social_mascotas\red_social_mascotas\obj\Debug\netcoreapp3.1\Razor\Views\Home\MisMascotas.cshtml.g.csutf-8ç

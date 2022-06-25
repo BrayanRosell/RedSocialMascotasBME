@@ -12,69 +12,6 @@
       },
       "results": [
         {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Repository/UsuarioRepository.cs",
-                "region": {
-                  "startLine": 156,
-                  "startColumn": 13,
-                  "endLine": 156,
-                  "endColumn": 80
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Service/CookieAuthService.cs",
-                "region": {
-                  "startLine": 24,
-                  "startColumn": 9,
-                  "endLine": 24,
-                  "endColumn": 47
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Service/CookieAuthService.cs",
-                "region": {
-                  "startLine": 49,
-                  "startColumn": 9,
-                  "endLine": 49,
-                  "endColumn": 12
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S1118",
           "level": "warning",
           "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
@@ -98,16 +35,16 @@
         {
           "ruleId": "S2933",
           "level": "warning",
-          "message": "Make 'context' 'readonly'.",
+          "message": "Make '_context' 'readonly'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Service/CookieAuthService.cs",
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Repository/UsuarioRepository.cs",
                 "region": {
-                  "startLine": 25,
+                  "startLine": 44,
                   "startColumn": 36,
-                  "endLine": 25,
-                  "endColumn": 43
+                  "endLine": 44,
+                  "endColumn": 44
                 }
               }
             }
@@ -119,16 +56,16 @@
         {
           "ruleId": "S2933",
           "level": "warning",
-          "message": "Make '_context' 'readonly'.",
+          "message": "Make 'context' 'readonly'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Repository/UsuarioRepository.cs",
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Service/CookieAuthService.cs",
                 "region": {
-                  "startLine": 44,
+                  "startLine": 24,
                   "startColumn": 36,
-                  "endLine": 44,
-                  "endColumn": 44
+                  "endLine": 24,
+                  "endColumn": 43
                 }
               }
             }
@@ -214,39 +151,18 @@
           }
         },
         {
-          "ruleId": "S1123",
+          "ruleId": "S2971",
           "level": "warning",
-          "message": "Add an explanation.",
+          "message": "Drop 'Where' and move the condition into the 'FirstOrDefault'.",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Controllers/HomeController.cs",
                 "region": {
-                  "startLine": 90,
-                  "startColumn": 10,
-                  "endLine": 90,
-                  "endColumn": 18
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1125",
-          "level": "warning",
-          "message": "Remove the unnecessary Boolean literal(s).",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Repository/UsuarioRepository.cs",
-                "region": {
-                  "startLine": 97,
-                  "startColumn": 67,
-                  "endLine": 97,
-                  "endColumn": 74
+                  "startLine": 45,
+                  "startColumn": 52,
+                  "endLine": 45,
+                  "endColumn": 57
                 }
               }
             }
@@ -289,6 +205,69 @@
                   "startColumn": 35,
                   "endLine": 21,
                   "endColumn": 206
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1125",
+          "level": "warning",
+          "message": "Remove the unnecessary Boolean literal(s).",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Repository/UsuarioRepository.cs",
+                "region": {
+                  "startLine": 97,
+                  "startColumn": 67,
+                  "endLine": 97,
+                  "endColumn": 74
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1123",
+          "level": "warning",
+          "message": "Add an explanation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Controllers/HomeController.cs",
+                "region": {
+                  "startLine": 99,
+                  "startColumn": 10,
+                  "endLine": 99,
+                  "endColumn": 18
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2178",
+          "level": "warning",
+          "message": "Correct this '|' to '||'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///E:/Brayan/Calidad/red_social_mascotas/red_social_mascotas/Repository/UsuarioRepository.cs",
+                "region": {
+                  "startLine": 133,
+                  "startColumn": 73,
+                  "endLine": 133,
+                  "endColumn": 74
                 }
               }
             }
@@ -367,12 +346,28 @@
             ]
           }
         },
-        "S125": {
-          "id": "S125",
-          "shortDescription": "Sections of code should not be commented out",
-          "fullDescription": "Programmers should not comment out code as it bloats programs and reduces readability.",
+        "S2178": {
+          "id": "S2178",
+          "shortDescription": "Short-circuit logic should be used in boolean contexts",
+          "fullDescription": "The use of non-short-circuit logic in a boolean context is likely a mistake - one that could cause serious program errors as conditions are evaluated under the wrong circumstances.",
           "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-125",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2178",
+          "properties": {
+            "category": "Blocker Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope"
+            ]
+          }
+        },
+        "S2933": {
+          "id": "S2933",
+          "shortDescription": "Fields that are only assigned in the constructor should be \"readonly\"",
+          "fullDescription": "readonly fields can only be assigned in a class constructor. If a class has a field that’s not marked readonly but is only set in the constructor, it could cause confusion about the field’s intended use. To avoid confusion, such fields should be marked readonly to make their intended use explicit, and to prevent future maintainers from inadvertently changing their use.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2933",
           "properties": {
             "category": "Major Code Smell",
             "isEnabledByDefault": true,
@@ -384,12 +379,12 @@
             ]
           }
         },
-        "S2933": {
-          "id": "S2933",
-          "shortDescription": "Fields that are only assigned in the constructor should be \"readonly\"",
-          "fullDescription": "readonly fields can only be assigned in a class constructor. If a class has a field that’s not marked readonly but is only set in the constructor, it could cause confusion about the field’s intended use. To avoid confusion, such fields should be marked readonly to make their intended use explicit, and to prevent future maintainers from inadvertently changing their use.",
+        "S2971": {
+          "id": "S2971",
+          "shortDescription": "\"IEnumerable\" LINQs should be simplified",
+          "fullDescription": "In the interests of readability, code that can be simplified should be simplified. To that end, there are several ways IEnumerable language integrated queries (LINQ) can be simplified",
           "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2933",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2971",
           "properties": {
             "category": "Major Code Smell",
             "isEnabledByDefault": true,
